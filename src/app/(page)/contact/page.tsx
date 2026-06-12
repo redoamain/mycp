@@ -172,18 +172,27 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-linear-to-r from-blue-900 to-blue-600 p-6 text-white">
-                <div className="text-center">
-                  <div className="mb-2 text-5xl">💧</div>
-                  <h4 className="text-lg font-bold">
+              <div className="rounded-2xl bg-linear-to-r from-blue-900 to-blue-600 p-8 text-white shadow-lg">
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-4 text-5xl">💧</div>
+
+                  <h4 className="text-xl font-bold">
                     Butuh Konsultasi Produk?
                   </h4>
-                  <p className="mt-2 text-sm text-blue-100">
-                    Tim ahli kami siap membantu Anda
+
+                  <p className="mt-2 max-w-xs text-sm text-blue-100">
+                    Tim ahli kami siap membantu Anda memilih produk yang sesuai
+                    dengan kebutuhan.
                   </p>
-                  <button className="mt-4 rounded-lg bg-white px-6 py-2 font-medium text-blue-700 transition-all hover:scale-105">
-                    Chat Via WhatsApp
-                  </button>
+
+                  <Link
+                    href="https://wa.me/6281335197324"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-semibold text-blue-700 transition-all hover:scale-105 hover:shadow-md"
+                  >
+                    Chat via WhatsApp
+                  </Link>
                 </div>
               </div>
             </motion.div>
