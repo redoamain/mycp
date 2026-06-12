@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-blue-200 bg-white dark:border-blue-800/50 dark:bg-neutral-900">
       {/* Newsletter Section */}
-      <div className="border-b border-blue-100 dark:border-blue-900/50">
+      {/* <div className="border-b border-blue-100 dark:border-blue-900/50">
         <div className="mx-auto max-w-7xl px-4 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="text-center md:text-left">
@@ -50,7 +50,7 @@ export default function Footer() {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Footer Content */}
       <div className="mx-auto max-w-7xl px-4 py-12">

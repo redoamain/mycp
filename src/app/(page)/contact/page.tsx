@@ -134,7 +134,7 @@ export default function ContactPage() {
                         (0322) 8802014
                       </p>
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                        +62 812 3456 7890 (WA)
+                        +62813 3519 7324 (WA)
                       </p>
                     </div>
                   </div>
@@ -143,6 +143,9 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold text-neutral-700 dark:text-neutral-300">
                         Email
+                      </p>
+                      <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                        pt.citiplumb@gmail.com
                       </p>
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">
                         info@citiplumb.id
@@ -201,7 +204,6 @@ export default function ContactPage() {
               loading="lazy"
               className="rounded-xl"
             ></iframe>
-      
           </div>
         </div>
       </section>

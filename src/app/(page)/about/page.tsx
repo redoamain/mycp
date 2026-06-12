@@ -55,9 +55,9 @@ export default function AboutPage() {
                 Visi
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Menjadi produsen kran air dan shower premium terkemuka di Asia
-                Tenggara yang dikenal akan kualitas, inovasi, dan komitmen
-                terhadap kepuasan pelanggan.
+                Untuk mempercantik dan menghadirkan lebih banyak fungsi pada
+                setiap dapur dan kamar mandi melalui inovasi dan kemewahan
+                desain produk
               </p>
             </motion.div>
 
@@ -72,24 +72,11 @@ export default function AboutPage() {
               <h3 className="mb-3 text-2xl font-bold text-blue-900 dark:text-blue-300">
                 Misi
               </h3>
-              <ul className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                <li>
-                  ✓ Menghasilkan produk berkualitas premium dengan standar
-                  internasional
-                </li>
-                <li>
-                  ✓ Mengembangkan inovasi teknologi hemat air dan ramah
-                  lingkungan
-                </li>
-                <li>
-                  ✓ Memberikan layanan purna jual terbaik untuk kepuasan
-                  pelanggan
-                </li>
-                <li>
-                  ✓ Memperluas jangkauan pasar baik nasional maupun
-                  internasional
-                </li>
-              </ul>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Mewujudkan perlengkapan dapur dan kamar mandi dengan model yang
+                inovatif, awet, hemat air, dan harga yang terjangkau bagi setiap
+                konsumen.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -116,7 +103,7 @@ export default function AboutPage() {
               <div className="mb-8">
                 <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600"></div>
                 <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2014 - Awal Berdiri
+                  2015 - Awal Berdiri
                 </h3>
                 <p className="mt-2 text-neutral-600 dark:text-neutral-400">
                   citiplumb memulai perjalanan sebagai Pabrik kecil di Lamongan,
@@ -129,23 +116,38 @@ export default function AboutPage() {
                   2017 - Ekspansi Pabrik
                 </h3>
                 <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  Membangun pabrik seluas 5.000 m² dan mulai memproduksi shower
-                  premium.
+                  Membangun pabrik seluas 50.000 m² dan mulai memproduksi shower
+                  & kran .
                 </p>
               </div>
               <div className="mb-8">
                 <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600"></div>
                 <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2020 - Sertifikasi ISO
+                  2020 - Sertifikasi
                 </h3>
                 <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  Mendapatkan sertifikasi ISO 9001:2015.
+                  ISO 9001:2015.
+                </p>
+                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                  UPC, Cupe.
+                </p>
+
+                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                  WaterSence.
+                </p>
+
+                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                  NSF/ANSI 61.
+                </p>
+
+                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                  Lead Free.
                 </p>
               </div>
               <div>
                 <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600 animate-pulse"></div>
                 <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2024 - Inovasi Berkelanjutan
+                  2026 - Inovasi Berkelanjutan
                 </h3>
                 <p className="mt-2 text-neutral-600 dark:text-neutral-400">
                   Terus berinovasi dengan teknologi hemat air dan desain modern.

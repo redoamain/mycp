@@ -13,6 +13,7 @@ const Navbar = () => {
     { name: "Tentang", href: "/about", active: false },
     { name: "Layanan", href: "/services", active: false },
     { name: "Portofolio", href: "/portfolio", active: false },
+    { name: "Karier", href:"/karier", active: false},
     { name: "Kontak", href: "/contact", active: false },
   ];
 

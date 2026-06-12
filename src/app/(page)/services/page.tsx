@@ -7,6 +7,38 @@ import Link from "next/link";
 export default function ServicesPage() {
   const services = [
     {
+      id: "moulding",
+      icon: "🏭",
+      title: "Moulding",
+      subtitle: "Pembuatan Cetakan Custom",
+      description:
+        "Desain dan pembuatan cetakan custom sesuai spesifikasi produk Anda, didukung tim engineer berpengalaman.",
+      features: [
+        "Desain CAD/CAM profesional",
+        "Cetakan presisi tinggi",
+        "Material cetakan tahan lama",
+        "Custom sesuai kebutuhan",
+        "Fast track moulding",
+      ],
+      image: "/img/services/moulding.webp",
+    },
+    {
+      id: "moulding-stainles",
+      icon: "🏭",
+      title: "Moulding Stainles",
+      subtitle: "Pembuatan Cetakan Custom",
+      description:
+        "Desain dan pembuatan cetakan custom sesuai spesifikasi produk Anda, didukung tim engineer berpengalaman.",
+      features: [
+        "Desain CAD/CAM profesional",
+        "Cetakan presisi tinggi",
+        "Material cetakan tahan lama",
+        "Custom sesuai kebutuhan",
+        "Fast track moulding",
+      ],
+      image: "/img/services/moulding-stainles.webp",
+    },
+    {
       id: "injection",
       icon: "💉",
       title: "Injection Moulding",
@@ -20,8 +52,7 @@ export default function ServicesPage() {
         "Cycle time cepat",
         "Produksi massal",
       ],
-      image:
-        "https://images.unsplash.com/photo-1532187866126-d3d23d6e2ef6?q=80&w=2070&auto=format&fit=crop",
+      image: "/img/services/injeksi.webp",
     },
     {
       id: "plating",
@@ -37,25 +68,23 @@ export default function ServicesPage() {
         "Finish mengkilap premium",
         "Daya rekat kuat",
       ],
-      image:
-        "https://images.unsplash.com/photo-1581092335871-4b3e4b8ad9e3?q=80&w=2070&auto=format&fit=crop",
+      image: "/img/services/plating.webp",
     },
     {
-      id: "moulding",
-      icon: "🏭",
-      title: "Moulding",
-      subtitle: "Pembuatan Cetakan Custom",
+      id: "spray",
+      icon: "🎨",
+      title: "Spray Coating",
+      subtitle: "Finishing Cat Premium",
       description:
-        "Desain dan pembuatan cetakan custom sesuai spesifikasi produk Anda, didukung tim engineer berpengalaman.",
+      "Layanan spray coating dengan berbagai pilihan warna dan finishing yang tahan lama, anti gores, dan estetis.",
       features: [
-        "Desain CAD/CAM profesional",
-        "Cetakan presisi tinggi",
-        "Material cetakan tahan lama",
-        "Custom sesuai kebutuhan",
-        "Fast track moulding",
+        "Pilihan warna lengkap",
+        "Finishing matte/glossy",
+        "Tahan gores dan cuaca",
+        "Teknologi electrostatic",
+        "Ramah lingkungan",
       ],
-      image:
-        "https://images.unsplash.com/photo-1581092335871-4b3e4b8ad9e3?q=80&w=2070&auto=format&fit=crop",
+      image: "/img/services/spray.webp",
     },
     {
       id: "assembly",
@@ -71,25 +100,7 @@ export default function ServicesPage() {
         "Packaging profesional",
         "Kapasitas 10.000 unit/hari",
       ],
-      image:
-        "https://images.unsplash.com/photo-1581092335871-4b3e4b8ad9e3?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-      id: "spray",
-      icon: "🎨",
-      title: "Spray Coating",
-      subtitle: "Finishing Cat Premium",
-      description:
-        "Layanan spray coating dengan berbagai pilihan warna dan finishing yang tahan lama, anti gores, dan estetis.",
-      features: [
-        "Pilihan warna lengkap",
-        "Finishing matte/glossy",
-        "Tahan gores dan cuaca",
-        "Teknologi electrostatic",
-        "Ramah lingkungan",
-      ],
-      image:
-        "https://images.unsplash.com/photo-1581092335871-4b3e4b8ad9e3?q=80&w=2070&auto=format&fit=crop",
+      image: "/img/services/assembly.webp",
     },
   ];
 
@@ -151,33 +162,33 @@ export default function ServicesPage() {
             {[
               {
                 step: 1,
-                name: "Injection",
-                icon: "💉",
-                color: "from-blue-900 to-blue-700",
-              },
-              {
-                step: 2,
-                name: "Plating",
-                icon: "✨",
-                color: "from-blue-800 to-blue-600",
-              },
-              {
-                step: 3,
                 name: "Moulding",
                 icon: "🏭",
                 color: "from-blue-700 to-blue-500",
               },
               {
-                step: 4,
-                name: "Assembly",
-                icon: "🔧",
-                color: "from-blue-600 to-blue-400",
+                step: 2,
+                name: "Injection",
+                icon: "💉",
+                color: "from-blue-900 to-blue-700",
               },
               {
-                step: 5,
+                step: 3,
+                name: "Plating",
+                icon: "✨",
+                color: "from-blue-800 to-blue-600",
+              },
+              {
+                step: 4,
                 name: "Spray",
                 icon: "🎨",
                 color: "from-blue-500 to-blue-300",
+              },
+              {
+                step: 5,
+                name: "Assembly",
+                icon: "🔧",
+                color: "from-blue-600 to-blue-400",
               },
             ].map((process, idx) => (
               <motion.div
@@ -268,9 +279,14 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="pt-4">
-                  <button className="rounded-lg bg-linear-to-r from-blue-800 to-blue-500 px-6 py-2 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                  <Link
+                    href="https://wa.me/6281335197324"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block rounded-lg bg-linear-to-r from-blue-800 to-blue-500 px-6 py-2 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  >
                     Konsultasi Layanan Ini →
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -379,9 +395,6 @@ export default function ServicesPage() {
           </motion.div>
         </div>
       </section>
-
-  
-
     </div>
   );
 }

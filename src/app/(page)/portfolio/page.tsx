@@ -40,12 +40,11 @@ type Product = {
 const products: Product[] = [
   {
     id: 1,
-    name: "Shower Rain Premium",
+    name: "",
     category: "Shower",
     priceUSD: 54.99,
     priceIDR: "Rp 850.000",
-    image:
-      "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/BHF3008108MB001.jpg",
     features: [
       "5 Mode Semprotan",
       "Hemat Air 40%",
@@ -68,12 +67,11 @@ const products: Product[] = [
   },
   {
     id: 2,
-    name: "Kran Air Modern",
+    name: "",
     category: "Faucet",
     priceUSD: 29.99,
     priceIDR: "Rp 450.000",
-    image:
-      "https://images.unsplash.com/photo-1584622650052-8b5d2745d3a5?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/BHF3004316MB005.jpg",
     features: ["Rotasi 360°", "Desain Elegan", "Anti Karat", "Easy Install"],
     description:
       "Kran air modern dengan rotasi 360 derajat memudahkan penggunaan sehari-hari.",
@@ -91,12 +89,11 @@ const products: Product[] = [
   },
   {
     id: 3,
-    name: "Shower Set Hotel",
+    name: "",
     category: "Shower Set",
     priceUSD: 79.99,
     priceIDR: "Rp 1.200.000",
-    image:
-      "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/BHF38101SSSD004.jpg",
     features: [
       "Complete Set",
       "Premium Quality",
@@ -119,12 +116,11 @@ const products: Product[] = [
   },
   {
     id: 4,
-    name: "Kran Dapur Stainless",
+    name: "",
     category: "Kitchen Faucet",
     priceUSD: 36.99,
     priceIDR: "Rp 550.000",
-    image:
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/MS-4224CPA.jpg",
     features: ["Dual Mode", "Tekanan Kuat", "Anti Karat", "360° Rotasi"],
     description:
       "Kran dapur dengan dual mode semprotan (stream & spray). Desain pull-out memudahkan membersihkan wastafel.",
@@ -142,12 +138,11 @@ const products: Product[] = [
   },
   {
     id: 5,
-    name: "Shower Panel Luxury",
+    name: "",
     category: "Shower Panel",
     priceUSD: 169.99,
     priceIDR: "Rp 2.500.000",
-    image:
-      "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/MS-4224ZMB.jpg",
     features: ["Waterfall", "LED Light", "Bluetooth", "5 Mode"],
     description:
       "Shower panel mewah dengan fitur waterfall, LED light, dan speaker Bluetooth.",
@@ -165,12 +160,11 @@ const products: Product[] = [
   },
   {
     id: 6,
-    name: "Kran Taman Outdoor",
+    name: "",
     category: "Outdoor Faucet",
     priceUSD: 22.99,
     priceIDR: "Rp 350.000",
-    image:
-      "https://images.unsplash.com/photo-1584622650052-8b5d2745d3a5?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/MS-4224ZSS.jpg",
     features: ["Anti UV", "Tahan Cuaca", "Anti Karat", "Anti Pecah"],
     description:
       "Kran khusus outdoor dengan material tahan cuaca dan anti UV. Cocok untuk taman, halaman, dan area outdoor.",
@@ -188,12 +182,11 @@ const products: Product[] = [
   },
   {
     id: 7,
-    name: "Smart Touch Faucet",
+    name: "",
     category: "Smart Faucet",
     priceUSD: 89.99,
     priceIDR: "Rp 1.350.000",
-    image:
-      "https://images.unsplash.com/photo-1584622650052-8b5d2745d3a5?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/MS-8237CP.jpg",
     features: ["Touch Sensor", "LED Indicator", "Smart Control", "Anti Karat"],
     description:
       "Kran pintar dengan sensor sentuh dan indikator LED. Kontrol suhu dan aliran air dengan mudah.",
@@ -211,12 +204,11 @@ const products: Product[] = [
   },
   {
     id: 8,
-    name: "Rain Shower Combo",
+    name: "",
     category: "Shower Set",
     priceUSD: 99.99,
     priceIDR: "Rp 1.500.000",
-    image:
-      "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/BHF38101MBSD003.jpg",
     features: ["Rain + Hand Shower", "Brass Body", "Anti Karat", "Easy Clean"],
     description:
       "Kombinasi shower rain dan hand shower dengan material brass berkualitas.",
@@ -234,12 +226,11 @@ const products: Product[] = [
   },
   {
     id: 9,
-    name: "Commercial Kitchen Faucet",
+    name: "",
     category: "Kitchen Faucet",
     priceUSD: 129.99,
     priceIDR: "Rp 1.950.000",
-    image:
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop",
+    image: "/img/products/BHF3004316SS006.jpg",
     features: ["High Arc", "Spring Design", "Commercial Grade", "Dual Mode"],
     description:
       "Kran dapur komersial dengan desain spring dan tinggi arc, cocok untuk restoran.",
@@ -257,12 +248,12 @@ const products: Product[] = [
   },
   {
     id: 10,
-    name: "Thermostatic Shower",
+    name: "",
     category: "Shower",
     priceUSD: 149.99,
     priceIDR: "Rp 2.250.000",
     image:
-      "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
+      "/img/products/BHF3008108SS002.jpg",
     features: [
       "Thermostatic Control",
       "Anti Scald",
@@ -283,51 +274,51 @@ const products: Product[] = [
       flowRate: "10 L/min",
     },
   },
-  {
-    id: 11,
-    name: "Wall Mounted Faucet",
-    category: "Faucet",
-    priceUSD: 49.99,
-    priceIDR: "Rp 750.000",
-    image:
-      "https://images.unsplash.com/photo-1584622650052-8b5d2745d3a5?q=80&w=2070&auto=format&fit=crop",
-    features: ["Wall Mounted", "Space Saving", "Modern Design", "Anti Karat"],
-    description:
-      "Kran dengan desain wall mounted yang menghemat ruang dan terlihat modern.",
-    amazonLink: "https://amazon.com/fauchet-wall-faucet",
-    homedepotLink: "https://homedepot.com/fauchet-wall-faucet",
-    ebayLink: "https://ebay.com/fauchet-wall-faucet",
-    specs: {
-      material: "Stainless Steel SS-304",
-      warranty: "3 Tahun",
-      certification: "SNI",
-      color: "Chrome, Matt Black",
-      pressure: "0.5 - 5 Bar",
-    },
-  },
-  {
-    id: 12,
-    name: "Handheld Shower Set",
-    category: "Shower Set",
-    priceUSD: 34.99,
-    priceIDR: "Rp 525.000",
-    image:
-      "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
-    features: ["Handheld", "Anti Kink Hose", "5 Mode", "Easy Install"],
-    description:
-      "Set shower handheld dengan hose anti kink dan 5 mode semprotan.",
-    amazonLink: "https://amazon.com/fauchet-handheld-shower",
-    homedepotLink: "https://homedepot.com/fauchet-handheld-shower",
-    ebayLink: "https://ebay.com/fauchet-handheld-shower",
-    specs: {
-      material: "ABS + Chrome",
-      warranty: "2 Tahun",
-      certification: "SNI",
-      color: "Chrome",
-      pressure: "0.5 - 5 Bar",
-      includes: "Shower head, Hose 2m, Bracket",
-    },
-  },
+  // {
+  //   id: 11,
+  //   name: "Wall Mounted Faucet",
+  //   category: "Faucet",
+  //   priceUSD: 49.99,
+  //   priceIDR: "Rp 750.000",
+  //   image:
+  //     "https://images.unsplash.com/photo-1584622650052-8b5d2745d3a5?q=80&w=2070&auto=format&fit=crop",
+  //   features: ["Wall Mounted", "Space Saving", "Modern Design", "Anti Karat"],
+  //   description:
+  //     "Kran dengan desain wall mounted yang menghemat ruang dan terlihat modern.",
+  //   amazonLink: "https://amazon.com/fauchet-wall-faucet",
+  //   homedepotLink: "https://homedepot.com/fauchet-wall-faucet",
+  //   ebayLink: "https://ebay.com/fauchet-wall-faucet",
+  //   specs: {
+  //     material: "Stainless Steel SS-304",
+  //     warranty: "3 Tahun",
+  //     certification: "SNI",
+  //     color: "Chrome, Matt Black",
+  //     pressure: "0.5 - 5 Bar",
+  //   },
+  // },
+  // {
+  //   id: 12,
+  //   name: "Handheld Shower Set",
+  //   category: "Shower Set",
+  //   priceUSD: 34.99,
+  //   priceIDR: "Rp 525.000",
+  //   image:
+  //     "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
+  //   features: ["Handheld", "Anti Kink Hose", "5 Mode", "Easy Install"],
+  //   description:
+  //     "Set shower handheld dengan hose anti kink dan 5 mode semprotan.",
+  //   amazonLink: "https://amazon.com/fauchet-handheld-shower",
+  //   homedepotLink: "https://homedepot.com/fauchet-handheld-shower",
+  //   ebayLink: "https://ebay.com/fauchet-handheld-shower",
+  //   specs: {
+  //     material: "ABS + Chrome",
+  //     warranty: "2 Tahun",
+  //     certification: "SNI",
+  //     color: "Chrome",
+  //     pressure: "0.5 - 5 Bar",
+  //     includes: "Shower head, Hose 2m, Bracket",
+  //   },
+  // },
 ];
 
 export default function PortfolioPage() {
@@ -429,8 +420,8 @@ export default function PortfolioPage() {
         title="Koleksi Produk fauchet - Kran & Shower Premium | Harga Mulai $22.99"
         description="Lihat koleksi lengkap produk fauchet: shower rain premium, kran air modern, shower set hotel, dan aksesoris kamar mandi. Tersedia di Amazon, HomeDepot, dan eBay."
         keywords="koleksi kran air, shower premium, produk fauchet, faucet collection, kran stainless, shower hotel"
-        image="https://fauchet.com/images/portfolio-og.jpg"
-        url="https://fauchet.com/portfolio"
+        image="https://citiplumb.id/images/MS-4224CPA.jpg"
+        url="https://citiplumb.id/portfolio"
         type="website"
       />
       <Navbar />
@@ -509,7 +500,7 @@ export default function PortfolioPage() {
                     <p className="text-lg font-bold text-white">
                       {product.name}
                     </p>
-                    <p className="text-sm text-blue-200">{product.category}</p>
+                    {/* <p className="text-sm text-blue-200">{product.category}</p>
                     <p className="mt-1 text-base font-semibold text-yellow-300">
                       ${product.priceUSD}
                     </p>
@@ -519,7 +510,7 @@ export default function PortfolioPage() {
                           • {feature}
                         </span>
                       ))}
-                    </div>
+                    </div> */}
                   </div>
                 </DirectionAwareHover>
               </motion.div>
