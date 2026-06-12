@@ -87,9 +87,15 @@ export function HeroSectionOne() {
             <div className="absolute inset-0 -translate-x-full transform bg-linear-to-r from-blue-800 to-blue-700 transition-transform duration-300 group-hover:translate-x-0" />
           </button>
 
-          <button className="transform rounded-lg border-2 border-blue-600 bg-transparent px-8 py-3 font-medium text-blue-600 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950/30">
+          <Link
+            href="https://wa.me/6281335197324"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transform rounded-lg border-2 border-blue-600 bg-transparent px-8 py-3 font-medium text-blue-600 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950/30"
+          >
             Konsultasi Sekarang
-          </button>
+          </Link>
+         
         </motion.div>
 
         {/* Stats Section - Blue Theme dengan data produksi */}
