@@ -1,6 +1,7 @@
 // src/app/page.tsx
 import { Comparer } from "@/components/compare";
-import { CustomerReviewsWithTranslationBadge } from "@/components/customereview";
+import CustomerReviewsResponsive from "@/components/customereview";
+
 
 import MaintenanceCheck from "@/components/maintenance-check";
 import { MapEx } from "@/components/map";
@@ -13,7 +14,7 @@ export default async function HomePage() {
         <HeroSectionOne />
         <Comparer/>
         <MapEx/>
-      <CustomerReviewsWithTranslationBadge/>
+        <CustomerReviewsResponsive/>
       </div>
     </MaintenanceCheck>
   );
