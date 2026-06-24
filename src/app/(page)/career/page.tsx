@@ -76,7 +76,7 @@ export default function CareerPage() {
     if (!dateStr) return "-";
     try {
       const date = new Date(dateStr);
-      return date.toLocaleDateString("id-ID", {
+      return date.toLocaleDateString("en-US", {
         day: "numeric",
         month: "long",
         year: "numeric",
@@ -95,7 +95,7 @@ export default function CareerPage() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-neutral-900 pt-20">
         <div className="flex flex-col items-center gap-4">
           <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
-          <p className="text-neutral-500">Memuat data lowongan...</p>
+          <p className="text-neutral-500">Loading job vacancies...</p>
         </div>
       </div>
     );
@@ -112,14 +112,14 @@ export default function CareerPage() {
           className="text-center py-12"
         >
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black dark:text-white mb-4">
-            Karir di{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-              Citiplumb
+            Careers at{" "}
+            <span className="bg-linear-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+              CITI PLUMB
             </span>
           </h1>
           <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-            Bergabunglah dengan tim kami dan bangun karir bersama perusahaan
-            faucet & kran terkemuka
+            Join our team and build your career with a leading faucet & faucet
+            manufacturing company
           </p>
         </motion.div>
 
@@ -134,15 +134,15 @@ export default function CareerPage() {
             <div className="text-2xl font-bold text-blue-600">
               {jobs.length}
             </div>
-            <div className="text-sm text-neutral-500">Total Lowongan</div>
+            <div className="text-sm text-neutral-500">Total Positions</div>
           </div>
           <div className="bg-white dark:bg-neutral-800 rounded-xl p-4 text-center shadow-sm border border-neutral-200 dark:border-neutral-700">
             <div className="text-2xl font-bold text-green-600">{openJobs}</div>
-            <div className="text-sm text-neutral-500">Dibuka</div>
+            <div className="text-sm text-neutral-500">Open</div>
           </div>
           <div className="bg-white dark:bg-neutral-800 rounded-xl p-4 text-center shadow-sm border border-neutral-200 dark:border-neutral-700">
             <div className="text-2xl font-bold text-red-600">{closedJobs}</div>
-            <div className="text-sm text-neutral-500">Ditutup</div>
+            <div className="text-sm text-neutral-500">Closed</div>
           </div>
         </motion.div>
 
@@ -157,7 +157,7 @@ export default function CareerPage() {
             <IconSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 w-5 h-5" />
             <input
               type="text"
-              placeholder="Cari posisi, departemen, atau skill..."
+              placeholder="Search position, department, or skill..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-black dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -165,9 +165,9 @@ export default function CareerPage() {
           </div>
           <div className="flex gap-2">
             {[
-              { value: "all", label: "Semua" },
-              { value: "open", label: "Dibuka" },
-              { value: "closed", label: "Ditutup" },
+              { value: "all", label: "All" },
+              { value: "open", label: "Open" },
+              { value: "closed", label: "Closed" },
             ].map((option) => (
               <button
                 key={option.value}
@@ -195,9 +195,7 @@ export default function CareerPage() {
               className="text-center py-16 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700"
             >
               <div className="text-5xl mb-4">🔍</div>
-              <p className="text-neutral-500">
-                Tidak ada lowongan yang ditemukan
-              </p>
+              <p className="text-neutral-500">No job vacancies found</p>
             </motion.div>
           ) : (
             <motion.div
@@ -243,7 +241,7 @@ export default function CareerPage() {
                           </div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3 flex-shrink-0">
+                      <div className="flex items-center gap-3 shrink-0">
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-medium ${
                             job.status === "open"
@@ -251,7 +249,7 @@ export default function CareerPage() {
                               : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
                           }`}
                         >
-                          {job.status === "open" ? "✅ Dibuka" : "🔒 Ditutup"}
+                          {job.status === "open" ? "✅ Open" : "🔒 Closed"}
                         </span>
                         <span className="text-xs text-neutral-400">
                           📅 {formatDate(job.postedDate)}
@@ -273,7 +271,7 @@ export default function CareerPage() {
                       ))}
                       {job.skills.length > 4 && (
                         <span className="text-xs text-neutral-400">
-                          +{job.skills.length - 4} lainnya
+                          +{job.skills.length - 4} more
                         </span>
                       )}
                     </div>
@@ -294,7 +292,7 @@ export default function CareerPage() {
                           {job.requirements.length > 0 && (
                             <div>
                               <h4 className="font-semibold text-sm text-black dark:text-white mb-2">
-                                📋 Kualifikasi
+                                📋 Requirements
                               </h4>
                               <ul className="list-disc list-inside space-y-1">
                                 {job.requirements.map((req, i) => (
@@ -332,7 +330,7 @@ export default function CareerPage() {
                           {job.guidelines.length > 0 && (
                             <div>
                               <h4 className="font-semibold text-sm text-black dark:text-white mb-2">
-                                📖 Kisi-kisi & Materi Ujian
+                                📖 Exam Guidelines & Materials
                               </h4>
                               <ul className="list-disc list-inside space-y-1">
                                 {job.guidelines.map((item, i) => (
@@ -352,7 +350,7 @@ export default function CareerPage() {
                             {job.salary && (
                               <div>
                                 <p className="text-xs text-neutral-400">
-                                  💰 Gaji
+                                  💰 Salary
                                 </p>
                                 <p className="text-sm font-medium text-black dark:text-white">
                                   {job.salary}
@@ -362,7 +360,7 @@ export default function CareerPage() {
                             {job.experience && (
                               <div>
                                 <p className="text-xs text-neutral-400">
-                                  📊 Pengalaman
+                                  📊 Experience
                                 </p>
                                 <p className="text-sm font-medium text-black dark:text-white">
                                   {job.experience}
@@ -372,7 +370,7 @@ export default function CareerPage() {
                             {job.education && (
                               <div>
                                 <p className="text-xs text-neutral-400">
-                                  🎓 Pendidikan
+                                  🎓 Education
                                 </p>
                                 <p className="text-sm font-medium text-black dark:text-white">
                                   {job.education}
@@ -382,7 +380,7 @@ export default function CareerPage() {
                             {job.location && (
                               <div>
                                 <p className="text-xs text-neutral-400">
-                                  📍 Lokasi
+                                  📍 Location
                                 </p>
                                 <p className="text-sm font-medium text-black dark:text-white">
                                   {job.location}
@@ -395,13 +393,13 @@ export default function CareerPage() {
                           {job.status === "open" && (
                             <div className="pt-2">
                               <a
-                                href={`mailto:citiplumb.hrd@gmail.com?subject=Lamaran Pekerjaan - ${job.title}&body=Yth. Tim HRD Citiplumb,%0A%0ASaya mengajukan lamaran untuk posisi ${job.title} di departemen ${job.department}.%0A%0ABerkas lamaran (CV, portfolio, dan dokumen pendukung) akan saya kirimkan sebagai lampiran email ini.%0A%0AInformasi diri:%0ANama: [Nama lengkap]%0AEmail: [Email aktif]%0ANo. Telepon: [Nomor yang dapat dihubungi]%0A%0ADemikian lamaran ini saya sampaikan. Besar harapan saya untuk dapat mengikuti proses seleksi lebih lanjut.%0A%0AHormat saya,%0A[Nama lengkap]%0A%0A---%0ADikirim melalui halaman karir Citiplumb`}
+                                href={`mailto:citiplumb.hrd@gmail.com?subject=Job Application - ${job.title}&body=Dear Citiplumb HR Team,%0A%0AI would like to apply for the position of ${job.title} in the ${job.department} department.%0A%0APlease find attached my CV, portfolio, and supporting documents.%0A%0APersonal Information:%0AName: [Full Name]%0AEmail: [Active Email]%0APhone: [Contact Number]%0A%0AI look forward to hearing from you.%0A%0ASincerely,%0A[Full Name]%0A%0A---%0ASent via Citiplumb Careers Page`}
                                 className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
                               >
-                                📨 Lamar Sekarang
+                                📨 Apply Now
                               </a>
                               <p className="text-xs text-neutral-400 mt-2">
-                                Kirim lamaran ke{" "}
+                                Send your application to{" "}
                                 <a
                                   href="mailto:citiplumb.hrd@gmail.com"
                                   className="text-blue-600 hover:underline"
@@ -423,8 +421,8 @@ export default function CareerPage() {
                       className="text-sm text-blue-600 hover:text-blue-700 font-medium"
                     >
                       {expandedJob === job.id
-                        ? "▲ Sembunyikan Detail"
-                        : "▼ Lihat Detail"}
+                        ? "▲ Hide Details"
+                        : "▼ View Details"}
                     </button>
                   </div>
                 </motion.div>
@@ -441,20 +439,21 @@ export default function CareerPage() {
           className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl text-center border border-blue-200 dark:border-blue-800"
         >
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            ✉️ Kirim lamaran Anda ke{" "}
+            ✉️ Send your application to{" "}
             <a
               href="mailto:citiplumb.hrd@gmail.com"
               className="font-semibold text-blue-600 hover:underline"
             >
               citiplumb.hrd@gmail.com
             </a>{" "}
-            dengan subjek:{" "}
+            with subject:{" "}
             <span className="font-mono text-xs bg-white dark:bg-neutral-800 px-2 py-1 rounded border border-blue-200 dark:border-blue-800">
-              Lamaran - [Posisi]
+              Application - [Position]
             </span>
           </p>
           <p className="text-xs text-neutral-500 mt-2">
-            Sertakan CV, portofolio (jika ada), dan dokumen pendukung lainnya.
+            Please include your CV, portfolio (if applicable), and other
+            supporting documents.
           </p>
         </motion.div>
       </div>
