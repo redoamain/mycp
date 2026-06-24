@@ -90,3 +90,4 @@ model Career {
   @@index([department])
   @@index([title])
 }
+//
