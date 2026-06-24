@@ -12,7 +12,7 @@ const certificatesData = [
     title: "ISO 9001:2015",
     issuer: "International Organization for Standardization",
     year: "2022",
-    image: "/img/cer/1.jpg",
+    image: "/img/cer/1.webp",
     description: "International quality management certificate",
   },
   {
@@ -94,27 +94,7 @@ export default function CertificatePreview() {
                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
 
-                {/* Overlay Hover */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 sm:gap-3 p-4">
-                  <div className="bg-white/20 backdrop-blur-sm p-2 sm:p-3 rounded-full border border-white/30">
-                    <svg
-                      className="w-5 h-5 sm:w-6 sm:h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-white text-[10px] sm:text-xs md:text-sm font-medium bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/30">
-                    Click to view
-                  </span>
-                </div>
+          
 
                 {/* Year Badge */}
                 <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-blue-600/90 backdrop-blur-sm text-white text-[8px] sm:text-[10px] md:text-xs font-medium px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20">

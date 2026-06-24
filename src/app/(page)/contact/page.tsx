@@ -165,7 +165,7 @@ export default function ContactPage() {
                         Monday - Friday: 08:00 - 16:00
                       </p>
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                        Saturday: 08:00 - 12:00
+                        Saturday: 08:00 - 13:15
                       </p>
                     </div>
                   </div>
