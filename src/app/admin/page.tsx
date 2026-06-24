@@ -1,115 +1,75 @@
 // src/app/admin/page.tsx
 "use client";
 
-import { useState, useEffect } from "react";
-import MaintenanceToggle from "@/components/admin/maintenance-toggle";
-import LoginForm from "@/components/admin/login-form";
-import Link from "next/link";
+import React, { useState, useEffect } from "react";
 
-export default function AdminPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+export default function AdminDashboard() {
+  const [stats, setStats] = useState({ products: 0, categories: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    checkSession();
+    fetchStats();
   }, []);
 
-  const checkSession = async () => {
+  const fetchStats = async () => {
     try {
-      const response = await fetch("/api/session", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const [productsRes, categoriesRes] = await Promise.all([
+        fetch("/api/admin/products"),
+        fetch("/api/admin/categories"),
+      ]);
+
+      const products = await productsRes.json();
+      const categories = await categoriesRes.json();
+
+      setStats({
+        products: Array.isArray(products) ? products.length : 0,
+        categories: Array.isArray(categories) ? categories.length : 0,
       });
-
-      const data = await response.json();
-
-      if (response.ok && data.isLoggedIn) {
-        // Session masih valid
-        setIsAuthenticated(true);
-        // Set localStorage untuk keperluan UI
-        localStorage.setItem("admin_logged_in", "true");
-        localStorage.setItem("admin_username", data.username);
-      } else {
-        // Session tidak valid, bersihkan localStorage
-        localStorage.removeItem("admin_logged_in");
-        localStorage.removeItem("admin_username");
-        localStorage.removeItem("admin_token");
-      }
     } catch (error) {
-      console.error("Session check failed:", error);
-      localStorage.removeItem("admin_logged_in");
-      localStorage.removeItem("admin_username");
-      localStorage.removeItem("admin_token");
+      console.error("Error fetching stats:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleLoginSuccess = () => {
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = async () => {
-    try {
-      // Panggil API logout untuk menghapus cookie
-      await fetch("/api/logout", {
-        method: "POST",
-      });
-
-      // Bersihkan localStorage
-      localStorage.removeItem("admin_logged_in");
-      localStorage.removeItem("admin_username");
-      localStorage.removeItem("admin_token");
-
-      // Update state
-      setIsAuthenticated(false);
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
-          <p className="mt-2 text-gray-600">Memeriksa session...</p>
-        </div>
+      <div className="flex items-center justify-center h-32">
+        <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
       </div>
     );
   }
 
-  if (!isAuthenticated) {
-    return <LoginForm onLoginSuccess={handleLoginSuccess} />;
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50 py-20 dark:bg-neutral-900">
-      <div className="mx-auto max-w-2xl px-4">
-        <div className="mb-8 flex items-center justify-between">
-          <Link href="/" className="text-blue-600 hover:underline">
-            ← Kembali ke Beranda
-          </Link>
-          <button
-            onClick={handleLogout}
-            className="text-red-600 hover:text-red-700 text-sm font-medium"
-          >
-            Logout
-          </button>
-        </div>
-
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-blue-900 dark:text-blue-300">
-            Admin Panel
-          </h1>
-          <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-            Kelola pengaturan website
+    <div>
+      <h2 className="text-xl font-semibold mb-4 text-black dark:text-white">
+        Welcome to Dashboard
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+          <h3 className="text-sm text-neutral-600 dark:text-neutral-400">
+            Total Products
+          </h3>
+          <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+            {stats.products}
           </p>
         </div>
-
-        <MaintenanceToggle />
+        <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+          <h3 className="text-sm text-neutral-600 dark:text-neutral-400">
+            Total Categories
+          </h3>
+          <p className="text-2xl font-bold text-green-600 dark:text-green-400">
+            {stats.categories}
+          </p>
+        </div>
+        <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+          <h3 className="text-sm text-neutral-600 dark:text-neutral-400">
+            Status
+          </h3>
+          <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+            Online
+          </p>
+        </div>
       </div>
     </div>
   );

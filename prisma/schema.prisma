@@ -35,3 +35,58 @@ model LoginLog {
   success   Boolean
   createdAt DateTime @default(now())
 }
+// ==================== PRODUCT & CATEGORY ====================
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  image       String   // Gambar utama / thumbnail
+  images      String[] @default([]) // Array untuk multiple images
+  categoryId  Int?
+  category    Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  isFeatured  Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([slug])
+  @@index([categoryId])
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String?
+  image       String?
+  products    Product[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([slug])
+}
+// ==================== CAREER / JOB ====================
+model Career {
+  id           String   @id @default(cuid())
+  title        String
+  department   String
+  type         String   // Full Time, Part Time, Shift, Contract
+  status       String   @default("open") // open | closed
+  postedDate   DateTime @default(now())
+  icon         String   @default("💼")
+  description  String   @db.Text
+  requirements String[] @default([])
+  skills       String[] @default([])
+  guidelines   String[] @default([])
+  location     String?
+  salary       String?
+  experience   String?
+  education    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([status])
+  @@index([department])
+  @@index([title])
+}

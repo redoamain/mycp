@@ -5,19 +5,27 @@ export async function middleware(request: NextRequest) {
   console.log("🚨 MIDDLEWARE JALAN!");
   console.log("Path:", request.nextUrl.pathname);
 
-  // Hardcode dulu untuk testing
-  const maintenanceMode = true;
+  // Hardcode dulu untuk testing - SET FALSE untuk disable maintenance
+  const maintenanceMode = false; // ← Ubah ke FALSE
 
   const pathname = request.nextUrl.pathname;
 
-  // JANGAN redirect jika sudah di halaman maintenance
+  // JANGAN redirect jika sudah di halaman maintenance atau API
   if (pathname === "/maintenance") {
     console.log("Sudah di maintenance page");
     return NextResponse.next();
   }
 
-  // Path yang diizinkan
-  const allowedPaths = ["/api", "/_next", "/admin", "/favicon.ico", "/login"];
+  // Path yang diizinkan (tambahkan /api/admin/upload)
+  const allowedPaths = [
+    "/api",
+    "/_next",
+    "/admin",
+    "/favicon.ico",
+    "/login",
+    "/api/admin/upload", // ← Tambahkan ini
+  ];
+
   const isAllowed = allowedPaths.some(
     (p) => pathname === p || pathname.startsWith(p),
   );
@@ -29,7 +37,12 @@ export async function middleware(request: NextRequest) {
   }
 
   console.log("✅ No redirect");
-  return NextResponse.next();
+
+  // 🔥 PENTING: Tambahkan header x-pathname untuk dibaca di layout
+  const response = NextResponse.next();
+  response.headers.set("x-pathname", pathname);
+
+  return response;
 }
 
 export const config = {

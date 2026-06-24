@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Navbar from "@/components/navbar";
 import Link from "next/link";
+import CertificateSection from "@/components/CertificateSection";
 
 export default function AboutPage() {
   return (
@@ -25,13 +26,13 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-              Tentang Kami
+              About Us
             </span>
             <h1 className="mt-2 text-4xl font-bold text-blue-900 dark:text-blue-300 md:text-5xl lg:text-6xl">
-              Mengenal Lebih Dekat
+              Get to Know
               <br />
               <span className="bg-linear-to-r from-blue-800 to-blue-400 bg-clip-text text-transparent">
-                citiplumb
+                CITI PLUMB
               </span>
             </h1>
             <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
@@ -39,7 +40,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Visi & Misi */}
+      {/* Vision & Mission */}
       <section className="w-full py-12">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -52,12 +53,11 @@ export default function AboutPage() {
             >
               <div className="mb-4 text-5xl">🎯</div>
               <h3 className="mb-3 text-2xl font-bold text-blue-900 dark:text-blue-300">
-                Visi
+                Vision
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Untuk mempercantik dan menghadirkan lebih banyak fungsi pada
-                setiap dapur dan kamar mandi melalui inovasi dan kemewahan
-                desain produk
+                To beautify and bring more functionality to every kitchen and
+                bathroom through product design innovation and luxury.
               </p>
             </motion.div>
 
@@ -70,19 +70,19 @@ export default function AboutPage() {
             >
               <div className="mb-4 text-5xl">🚀</div>
               <h3 className="mb-3 text-2xl font-bold text-blue-900 dark:text-blue-300">
-                Misi
+                Mission
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Mewujudkan perlengkapan dapur dan kamar mandi dengan model yang
-                inovatif, awet, hemat air, dan harga yang terjangkau bagi setiap
-                konsumen.
+                To realize kitchen and bathroom fixtures with innovative models,
+                durability, water efficiency, and affordable prices for every
+                consumer.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Sejarah */}
+      {/* History */}
       <section className="w-full py-12">
         <div className="mx-auto max-w-7xl px-4">
           <motion.div
@@ -95,7 +95,7 @@ export default function AboutPage() {
             <div className="mb-6 flex items-center gap-3">
               <div className="text-4xl">📖</div>
               <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-300">
-                Perjalanan citiplumb
+                CITI PLUMB Journey
               </h2>
             </div>
 
@@ -103,54 +103,31 @@ export default function AboutPage() {
               <div className="mb-8">
                 <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600"></div>
                 <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2015 - Awal Berdiri
+                  2015 - Founding
                 </h3>
                 <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  citiplumb memulai perjalanan sebagai Pabrik kecil di Lamongan,
-                  Jawa Timur.
+                  CITI PLUMB began its journey as a small factory in Lamongan,
+                  East Java.
                 </p>
               </div>
               <div className="mb-8">
                 <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600"></div>
                 <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2017 - Ekspansi Pabrik
+                  2017 - Factory Expansion
                 </h3>
                 <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  Membangun pabrik seluas 50.000 m² dan mulai memproduksi shower
-                  & kran .
-                </p>
-              </div>
-              <div className="mb-8">
-                <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600"></div>
-                <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2020 - Sertifikasi
-                </h3>
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  ISO 9001:2015.
-                </p>
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  UPC, Cupe.
-                </p>
-
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  WaterSence.
-                </p>
-
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  NSF/ANSI 61.
-                </p>
-
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  Lead Free.
+                  Built a 50,000 m² factory and started producing showers and
+                  faucets.
                 </p>
               </div>
               <div>
                 <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600 animate-pulse"></div>
                 <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2026 - Inovasi Berkelanjutan
+                  2026 - Continuous Innovation
                 </h3>
                 <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  Terus berinovasi dengan teknologi hemat air dan desain modern.
+                  Continuously innovating with water-saving technology and
+                  modern designs.
                 </p>
               </div>
             </div>
@@ -158,15 +135,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Statistik */}
+      {/* Statistics */}
       <section className="w-full py-12">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 pb-5">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { number: "10+", label: "Tahun Pengalaman", icon: "⭐" },
-              { number: "50K+", label: "Unit Terjual", icon: "🚿" },
-              { number: "500+", label: "Hotel Partner", icon: "🏨" },
-              { number: "100%", label: "Kepuasan Klien", icon: "😊" },
+              { number: "10+", label: "Years of Experience", icon: "⭐" },
+              { number: "50K+", label: "Units Sold", icon: "🚿" },
+              { number: "500+", label: "Hotel Partners", icon: "🏨" },
+              { number: "100%", label: "Client Satisfaction", icon: "😊" },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -187,6 +164,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+      <CertificateSection/>
       </section>
     </div>
   );

@@ -142,7 +142,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition"
-              placeholder="admin"
+              placeholder=""
               required
               disabled={loading}
             />

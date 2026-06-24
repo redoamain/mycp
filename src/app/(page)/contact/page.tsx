@@ -23,13 +23,13 @@ export default function ContactPage() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-              Hubungi Kami
+              Contact Us
             </span>
             <h1 className="mt-2 text-4xl font-bold text-blue-900 dark:text-blue-300 md:text-5xl lg:text-6xl">
-              Siap Bekerja Sama
+              Ready to Collaborate
               <br />
               <span className="bg-linear-to-r from-blue-800 to-blue-400 bg-clip-text text-transparent">
-                dengan citiplumb?
+                with CITI PLUMB?
               </span>
             </h1>
             <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
@@ -50,17 +50,17 @@ export default function ContactPage() {
               className="rounded-2xl bg-white p-6 shadow-lg dark:bg-neutral-800"
             >
               <h3 className="mb-4 text-xl font-bold text-blue-900 dark:text-blue-300">
-                Kirim Pesan
+                Send Message
               </h3>
               <form className="space-y-4">
                 <div>
                   <label className="mb-1 block text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                    Nama Lengkap
+                    Full Name
                   </label>
                   <input
                     type="text"
                     className="w-full rounded-lg border border-blue-200 px-4 py-2 focus:border-blue-500 focus:outline-none dark:border-blue-800 dark:bg-neutral-900"
-                    placeholder="Nama Anda"
+                    placeholder="Your Name"
                   />
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                    No. Telepon
+                    Phone Number
                   </label>
                   <input
                     type="tel"
@@ -85,21 +85,21 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                    Pesan
+                    Message
                   </label>
                   <textarea
                     rows={4}
                     className="w-full rounded-lg border border-blue-200 px-4 py-2 focus:border-blue-500 focus:outline-none dark:border-blue-800 dark:bg-neutral-900"
-                    placeholder="Tulis pesan Anda..."
+                    placeholder="Write your message..."
                   />
                 </div>
                 <button className="w-full rounded-lg bg-linear-to-r from-blue-800 to-blue-500 py-2 font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
-                  Kirim Pesan
+                  Send Message
                 </button>
               </form>
             </motion.div>
 
-            {/* Info Kontak */}
+            {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -109,14 +109,14 @@ export default function ContactPage() {
             >
               <div className="rounded-2xl bg-white p-6 shadow-lg dark:bg-neutral-800">
                 <h3 className="mb-4 text-xl font-bold text-blue-900 dark:text-blue-300">
-                  Informasi Kontak
+                  Contact Information
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">📍</span>
                     <div>
                       <p className="font-semibold text-neutral-700 dark:text-neutral-300">
-                        Alamat Kantor
+                        Office Address
                       </p>
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">
                         Jl. Raya Plosowahyu Babat, Sawah, Plosowahyu, Kec.
@@ -128,7 +128,7 @@ export default function ContactPage() {
                     <span className="text-2xl">📞</span>
                     <div>
                       <p className="font-semibold text-neutral-700 dark:text-neutral-300">
-                        Telepon
+                        Phone
                       </p>
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">
                         (0322) 8802014
@@ -159,13 +159,13 @@ export default function ContactPage() {
                     <span className="text-2xl">🕒</span>
                     <div>
                       <p className="font-semibold text-neutral-700 dark:text-neutral-300">
-                        Jam Operasional
+                        Operating Hours
                       </p>
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                        Senin - Jumat: 08:00 - 16:00
+                        Monday - Friday: 08:00 - 16:00
                       </p>
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                        Sabtu: 08:00 - 12:00
+                        Saturday: 08:00 - 12:00
                       </p>
                     </div>
                   </div>
@@ -177,12 +177,12 @@ export default function ContactPage() {
                   <div className="mb-4 text-5xl">💧</div>
 
                   <h4 className="text-xl font-bold">
-                    Butuh Konsultasi Produk?
+                    Need Product Consultation?
                   </h4>
 
                   <p className="mt-2 max-w-xs text-sm text-blue-100">
-                    Tim ahli kami siap membantu Anda memilih produk yang sesuai
-                    dengan kebutuhan.
+                    Our expert team is ready to help you choose the right
+                    products for your needs.
                   </p>
 
                   <Link

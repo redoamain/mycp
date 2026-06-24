@@ -10,14 +10,14 @@ export default function ServicesPage() {
       id: "moulding",
       icon: "🏭",
       title: "Moulding",
-      subtitle: "Pembuatan Cetakan Custom",
+      subtitle: "Custom Mold Manufacturing",
       description:
-        "Desain dan pembuatan cetakan custom sesuai spesifikasi produk Anda, didukung tim engineer berpengalaman.",
+        "Design and manufacture custom molds according to your product specifications, supported by an experienced engineering team.",
       features: [
-        "Desain CAD/CAM profesional",
-        "Cetakan presisi tinggi",
-        "Material cetakan tahan lama",
-        "Custom sesuai kebutuhan",
+        "Professional CAD/CAM design",
+        "High precision molds",
+        "Durable mold materials",
+        "Customized to your needs",
         "Fast track moulding",
       ],
       image: "/img/services/moulding.webp",
@@ -25,15 +25,15 @@ export default function ServicesPage() {
     {
       id: "moulding-stainles",
       icon: "🏭",
-      title: "Moulding Stainles",
-      subtitle: "Pembuatan Cetakan Custom",
+      title: "Stainless Steel Moulding",
+      subtitle: "Custom Mold Manufacturing",
       description:
-        "Desain dan pembuatan cetakan custom sesuai spesifikasi produk Anda, didukung tim engineer berpengalaman.",
+        "Design and manufacture custom molds according to your product specifications, supported by an experienced engineering team.",
       features: [
-        "Desain CAD/CAM profesional",
-        "Cetakan presisi tinggi",
-        "Material cetakan tahan lama",
-        "Custom sesuai kebutuhan",
+        "Professional CAD/CAM design",
+        "High precision molds",
+        "Durable mold materials",
+        "Customized to your needs",
         "Fast track moulding",
       ],
       image: "/img/services/moulding-stainles.webp",
@@ -42,15 +42,15 @@ export default function ServicesPage() {
       id: "injection",
       icon: "💉",
       title: "Injection Moulding",
-      subtitle: "Cetakan Plastik Presisi Tinggi",
+      subtitle: "High Precision Plastic Molding",
       description:
-        "Proses injection moulding dengan mesin canggih untuk menghasilkan komponen plastik berkualitas tinggi dengan akurasi dan konsistensi terbaik.",
+        "Injection moulding process with advanced machinery to produce high-quality plastic components with the best accuracy and consistency.",
       features: [
-        "Kapasitas 100-1000 ton",
-        "Akurasi tinggi ±0.01mm",
-        "Material premium (ABS, PC, PP, Nylon)",
-        "Cycle time cepat",
-        "Produksi massal",
+        "Capacity 100-1000 tons",
+        "High accuracy ±0.01mm",
+        "Premium materials (ABS, PC, PP, Nylon)",
+        "Fast cycle time",
+        "Mass production",
       ],
       image: "/img/services/injeksi.webp",
     },
@@ -58,15 +58,15 @@ export default function ServicesPage() {
       id: "plating",
       icon: "✨",
       title: "Plating / Electroplating",
-      subtitle: "Lapisan Chrome Premium Anti Karat",
+      subtitle: "Premium Anti-Rust Chrome Coating",
       description:
-        "Teknologi electroplating modern untuk memberikan lapisan chrome berkualitas tinggi yang mengkilap, tahan karat, dan tahan lama.",
+        "Modern electroplating technology to provide high-quality chrome coating that is shiny, rust-resistant, and durable.",
       features: [
-        "Lapisan chrome tebal",
-        "Proses ramah lingkungan",
-        "Tahan korosi dan karat",
-        "Finish mengkilap premium",
-        "Daya rekat kuat",
+        "Thick chrome coating",
+        "Eco-friendly process",
+        "Corrosion and rust resistant",
+        "Premium shiny finish",
+        "Strong adhesion",
       ],
       image: "/img/services/plating.webp",
     },
@@ -74,15 +74,15 @@ export default function ServicesPage() {
       id: "spray",
       icon: "🎨",
       title: "Spray Coating",
-      subtitle: "Finishing Cat Premium",
+      subtitle: "Premium Paint Finishing",
       description:
-      "Layanan spray coating dengan berbagai pilihan warna dan finishing yang tahan lama, anti gores, dan estetis.",
+        "Spray coating services with various color options and finishes that are durable, scratch-resistant, and aesthetic.",
       features: [
-        "Pilihan warna lengkap",
-        "Finishing matte/glossy",
-        "Tahan gores dan cuaca",
-        "Teknologi electrostatic",
-        "Ramah lingkungan",
+        "Complete color options",
+        "Matte/glossy finishing",
+        "Scratch and weather resistant",
+        "Electrostatic technology",
+        "Eco-friendly",
       ],
       image: "/img/services/spray.webp",
     },
@@ -90,15 +90,15 @@ export default function ServicesPage() {
       id: "assembly",
       icon: "🔧",
       title: "Assembly",
-      subtitle: "Perakitan Komponen",
+      subtitle: "Component Assembly",
       description:
-        "Layanan perakitan komponen dengan standar quality control ketat untuk memastikan setiap produk berfungsi optimal.",
+        "Component assembly services with strict quality control standards to ensure every product functions optimally.",
       features: [
-        "Line assembly otomatis",
-        "Quality control ketat",
-        "Tes fungsi produk",
-        "Packaging profesional",
-        "Kapasitas 10.000 unit/hari",
+        "Automated assembly line",
+        "Strict quality control",
+        "Product function testing",
+        "Professional packaging",
+        "Capacity 10,000 units/day",
       ],
       image: "/img/services/assembly.webp",
     },
@@ -124,25 +124,25 @@ export default function ServicesPage() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-              Layanan Kami
+              Our Services
             </span>
             <h1 className="mt-2 text-4xl font-bold text-blue-900 dark:text-blue-300 md:text-5xl lg:text-6xl">
-              Solusi Manufaktur
+              Complete &
               <br />
               <span className="bg-linear-to-r from-blue-800 to-blue-400 bg-clip-text text-transparent">
-                Lengkap & Terintegrasi
+                Integrated Manufacturing Solutions
               </span>
             </h1>
             <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
             <p className="mx-auto mt-6 max-w-2xl text-neutral-600 dark:text-neutral-400">
-              citiplumb menyediakan layanan manufaktur terintegrasi dari hulu ke
-              hilir untuk memproduksi komponen berkualitas premium
+              CITI PLUMB provides integrated manufacturing services from upstream
+              to downstream to produce premium quality components
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Proses Manufaktur Flow */}
+      {/* Manufacturing Process Flow */}
       <section className="w-full py-12">
         <div className="mx-auto max-w-7xl px-4">
           <motion.div
@@ -153,7 +153,7 @@ export default function ServicesPage() {
             className="mb-12 text-center"
           >
             <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-300">
-              Proses Manufaktur citiplumb
+              CITI PLUMB Manufacturing Process
             </h2>
             <div className="mx-auto mt-2 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
           </motion.div>
@@ -219,7 +219,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Detail Layanan */}
+      {/* Service Details */}
       {services.map((service, idx) => (
         <section
           key={service.id}
@@ -234,7 +234,7 @@ export default function ServicesPage() {
               viewport={{ once: true }}
               className={`grid grid-cols-1 gap-12 ${idx % 2 === 0 ? "md:grid-cols-2" : "md:grid-cols-2"}`}
             >
-              {/* Gambar */}
+              {/* Image */}
               <div
                 className={`rounded-2xl overflow-hidden shadow-xl ${idx % 2 === 1 ? "md:order-2" : ""}`}
               >
@@ -245,13 +245,13 @@ export default function ServicesPage() {
                 />
               </div>
 
-              {/* Konten */}
+              {/* Content */}
               <div className="flex flex-col justify-center space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="text-5xl">{service.icon}</div>
                   <div>
                     <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-                      Layanan {idx + 1} / 5
+                      Service {idx + 1} / {services.length}
                     </span>
                     <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-300">
                       {service.title}
@@ -285,7 +285,7 @@ export default function ServicesPage() {
                     rel="noopener noreferrer"
                     className="inline-block rounded-lg bg-linear-to-r from-blue-800 to-blue-500 px-6 py-2 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
                   >
-                    Konsultasi Layanan Ini →
+                    Consult This Service →
                   </Link>
                 </div>
               </div>
@@ -294,7 +294,7 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      {/* Kapasitas Produksi */}
+      {/* Production Capacity */}
       <section className="w-full py-16 bg-linear-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-neutral-900">
         <div className="mx-auto max-w-7xl px-4">
           <motion.div
@@ -305,7 +305,7 @@ export default function ServicesPage() {
             className="mb-12 text-center"
           >
             <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-300">
-              Kapasitas Produksi
+              Production Capacity
             </h2>
             <div className="mx-auto mt-2 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
           </motion.div>
@@ -313,33 +313,33 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
               {
-                label: "Mesin Injection",
-                value: "15 Unit",
-                detail: "Kapasitas 50-1000 ton",
+                label: "Injection Machines",
+                value: "15 Units",
+                detail: "Capacity 50-1000 tons",
               },
               {
-                label: "Line Plating",
-                value: "5 Line",
-                detail: "Kapasitas 50.000 pcs/hari",
+                label: "Plating Lines",
+                value: "5 Lines",
+                detail: "Capacity 50,000 pcs/day",
               },
               {
-                label: "Assembly Line",
-                value: "8 Line",
-                detail: "Kapasitas 10.000 unit/hari",
+                label: "Assembly Lines",
+                value: "8 Lines",
+                detail: "Capacity 10,000 units/day",
               },
               {
-                label: "Spray Booth",
-                value: "10 Booth",
-                detail: "Kapasitas 20.000 pcs/hari",
+                label: "Spray Booths",
+                value: "10 Booths",
+                detail: "Capacity 20,000 pcs/day",
               },
               {
                 label: "Moulding",
-                value: "50+ Mold",
+                value: "50+ Molds",
                 detail: "Custom design available",
               },
               {
-                label: "QC Station",
-                value: "20 Station",
+                label: "QC Stations",
+                value: "20 Stations",
                 detail: "100% quality control",
               },
             ].map((item, idx) => (
@@ -375,20 +375,20 @@ export default function ServicesPage() {
             className="rounded-2xl bg-linear-to-r from-blue-900 to-blue-600 p-8 text-white"
           >
             <h2 className="text-2xl font-bold md:text-3xl">
-              Siap Memulai Produksi?
+              Ready to Start Production?
             </h2>
             <p className="mt-2 text-blue-100">
-              Konsultasikan kebutuhan manufaktur Anda dengan tim ahli citiplumb
+              Consult your manufacturing needs with the CITI PLUMB expert team
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <Link href="/contact">
                 <button className="rounded-lg bg-white px-6 py-2 font-medium text-blue-700 transition-all hover:scale-105">
-                  Hubungi Kami
+                  Contact Us
                 </button>
               </Link>
-              <Link href="/portfolio">
+              <Link href="/products">
                 <button className="rounded-lg border-2 border-white px-6 py-2 font-medium text-white transition-all hover:bg-white/10">
-                  Lihat Produk
+                  View Products
                 </button>
               </Link>
             </div>

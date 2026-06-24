@@ -9,7 +9,7 @@ import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 import Link from "next/link";
 import SEO from "@/components/SEO";
 
-// Tipe untuk Product
+// Product Type
 type Product = {
   id: number;
   name: string;
@@ -36,7 +36,7 @@ type Product = {
   };
 };
 
-// Data Produk (sama seperti sebelumnya)
+// Product Data
 const products: Product[] = [
   {
     id: 1,
@@ -46,23 +46,23 @@ const products: Product[] = [
     priceIDR: "Rp 850.000",
     image: "/img/products/BHF3008108MB001.jpg",
     features: [
-      "5 Mode Semprotan",
-      "Hemat Air 40%",
-      "Anti Karat SS-304",
-      "Garansi 5 Tahun",
+      "5 Spray Modes",
+      "40% Water Saving",
+      "Rust-proof SS-304",
+      "5 Year Warranty",
     ],
     description:
-      "Shower rain premium dengan teknologi hemat air dan 5 mode semprotan yang dapat disesuaikan.",
+      "Premium rain shower with water-saving technology and 5 adjustable spray modes.",
     amazonLink: "https://amazon.com/fauchet-shower-premium",
     homedepotLink: "https://homedepot.com/fauchet-shower-premium",
     ebayLink: "https://ebay.com/fauchet-shower-premium",
     specs: {
       material: "Stainless Steel SS-304",
-      warranty: "5 Tahun",
+      warranty: "5 Years",
       certification: "SNI, ISO 9001",
       color: "Chrome, Matt Black, Gold",
       pressure: "0.5 - 5 Bar",
-      flowRate: "8 L/min (hemat 40%)",
+      flowRate: "8 L/min (40% saving)",
     },
   },
   {
@@ -72,15 +72,15 @@ const products: Product[] = [
     priceUSD: 29.99,
     priceIDR: "Rp 450.000",
     image: "/img/products/BHF3004316MB005.jpg",
-    features: ["Rotasi 360°", "Desain Elegan", "Anti Karat", "Easy Install"],
+    features: ["360° Rotation", "Elegant Design", "Rust-proof", "Easy Install"],
     description:
-      "Kran air modern dengan rotasi 360 derajat memudahkan penggunaan sehari-hari.",
+      "Modern faucet with 360-degree rotation for everyday convenience.",
     amazonLink: "https://amazon.com/fauchet-faucet-modern",
     homedepotLink: "https://homedepot.com/fauchet-faucet-modern",
     ebayLink: "https://ebay.com/fauchet-faucet-modern",
     specs: {
       material: "Stainless Steel SS-304",
-      warranty: "3 Tahun",
+      warranty: "3 Years",
       certification: "SNI",
       color: "Chrome, Matt Black",
       pressure: "0.5 - 5 Bar",
@@ -97,21 +97,21 @@ const products: Product[] = [
     features: [
       "Complete Set",
       "Premium Quality",
-      "Anti Karat",
-      "Garansi 5 Tahun",
+      "Rust-proof",
+      "5 Year Warranty",
     ],
     description:
-      "Set shower lengkap untuk hotel dan resort. Termasuk shower head, hand shower, hose, dan bracket.",
+      "Complete shower set for hotels and resorts. Includes shower head, hand shower, hose, and bracket.",
     amazonLink: "https://amazon.com/fauchet-shower-set",
     homedepotLink: "https://homedepot.com/fauchet-shower-set",
     ebayLink: "https://ebay.com/fauchet-shower-set",
     specs: {
       material: "Stainless Steel SS-304",
-      warranty: "5 Tahun",
+      warranty: "5 Years",
       certification: "SNI, ISO 9001",
       color: "Chrome, Gold, Rose Gold",
       pressure: "0.5 - 5 Bar",
-      includes: "Shower head, Hand shower, Hose 1.5m, Bracket",
+      includes: "Shower head, Hand shower, 1.5m Hose, Bracket",
     },
   },
   {
@@ -121,15 +121,15 @@ const products: Product[] = [
     priceUSD: 36.99,
     priceIDR: "Rp 550.000",
     image: "/img/products/MS-4224CPA.jpg",
-    features: ["Dual Mode", "Tekanan Kuat", "Anti Karat", "360° Rotasi"],
+    features: ["Dual Mode", "Strong Pressure", "Rust-proof", "360° Rotation"],
     description:
-      "Kran dapur dengan dual mode semprotan (stream & spray). Desain pull-out memudahkan membersihkan wastafel.",
+      "Kitchen faucet with dual spray modes (stream & spray). Pull-out design makes sink cleaning easy.",
     amazonLink: "https://amazon.com/fauchet-kitchen-faucet",
     homedepotLink: "https://homedepot.com/fauchet-kitchen-faucet",
     ebayLink: "https://ebay.com/fauchet-kitchen-faucet",
     specs: {
       material: "Stainless Steel SS-304",
-      warranty: "5 Tahun",
+      warranty: "5 Years",
       certification: "SNI",
       color: "Chrome, Matt Black, Brushed Nickel",
       pressure: "0.5 - 5 Bar",
@@ -143,15 +143,15 @@ const products: Product[] = [
     priceUSD: 169.99,
     priceIDR: "Rp 2.500.000",
     image: "/img/products/MS-4224ZMB.jpg",
-    features: ["Waterfall", "LED Light", "Bluetooth", "5 Mode"],
+    features: ["Waterfall", "LED Light", "Bluetooth", "5 Modes"],
     description:
-      "Shower panel mewah dengan fitur waterfall, LED light, dan speaker Bluetooth.",
+      "Luxury shower panel with waterfall feature, LED lights, and Bluetooth speaker.",
     amazonLink: "https://amazon.com/fauchet-shower-panel",
     homedepotLink: "https://homedepot.com/fauchet-shower-panel",
     ebayLink: "https://ebay.com/fauchet-shower-panel",
     specs: {
       material: "Stainless Steel + Tempered Glass",
-      warranty: "3 Tahun",
+      warranty: "3 Years",
       certification: "ISO 9001",
       color: "Chrome, Black",
       pressure: "0.5 - 5 Bar",
@@ -165,15 +165,15 @@ const products: Product[] = [
     priceUSD: 22.99,
     priceIDR: "Rp 350.000",
     image: "/img/products/MS-4224ZSS.jpg",
-    features: ["Anti UV", "Tahan Cuaca", "Anti Karat", "Anti Pecah"],
+    features: ["Anti UV", "Weather Resistant", "Rust-proof", "Anti Crack"],
     description:
-      "Kran khusus outdoor dengan material tahan cuaca dan anti UV. Cocok untuk taman, halaman, dan area outdoor.",
+      "Special outdoor faucet with weather-resistant and anti-UV material. Perfect for gardens, yards, and outdoor areas.",
     amazonLink: "https://amazon.com/fauchet-outdoor-faucet",
     homedepotLink: "https://homedepot.com/fauchet-outdoor-faucet",
     ebayLink: "https://ebay.com/fauchet-outdoor-faucet",
     specs: {
       material: "Brass + Powder Coating",
-      warranty: "2 Tahun",
+      warranty: "2 Years",
       certification: "SNI",
       color: "Matt Black, Dark Green",
       pressure: "0.5 - 5 Bar",
@@ -187,15 +187,15 @@ const products: Product[] = [
     priceUSD: 89.99,
     priceIDR: "Rp 1.350.000",
     image: "/img/products/MS-8237CP.jpg",
-    features: ["Touch Sensor", "LED Indicator", "Smart Control", "Anti Karat"],
+    features: ["Touch Sensor", "LED Indicator", "Smart Control", "Rust-proof"],
     description:
-      "Kran pintar dengan sensor sentuh dan indikator LED. Kontrol suhu dan aliran air dengan mudah.",
+      "Smart faucet with touch sensor and LED indicator. Easily control temperature and water flow.",
     amazonLink: "https://amazon.com/fauchet-smart-faucet",
     homedepotLink: "https://homedepot.com/fauchet-smart-faucet",
     ebayLink: "https://ebay.com/fauchet-smart-faucet",
     specs: {
       material: "Stainless Steel SS-304",
-      warranty: "3 Tahun",
+      warranty: "3 Years",
       certification: "SNI, CE",
       color: "Chrome, Matt Black",
       pressure: "0.5 - 5 Bar",
@@ -209,15 +209,15 @@ const products: Product[] = [
     priceUSD: 99.99,
     priceIDR: "Rp 1.500.000",
     image: "/img/products/BHF38101MBSD003.jpg",
-    features: ["Rain + Hand Shower", "Brass Body", "Anti Karat", "Easy Clean"],
+    features: ["Rain + Hand Shower", "Brass Body", "Rust-proof", "Easy Clean"],
     description:
-      "Kombinasi shower rain dan hand shower dengan material brass berkualitas.",
+      "Combination of rain shower and hand shower with quality brass material.",
     amazonLink: "https://amazon.com/fauchet-rain-combo",
     homedepotLink: "https://homedepot.com/fauchet-rain-combo",
     ebayLink: "https://ebay.com/fauchet-rain-combo",
     specs: {
       material: "Brass + Chrome Plated",
-      warranty: "5 Tahun",
+      warranty: "5 Years",
       certification: "SNI",
       color: "Chrome",
       pressure: "0.5 - 5 Bar",
@@ -233,13 +233,13 @@ const products: Product[] = [
     image: "/img/products/BHF3004316SS006.jpg",
     features: ["High Arc", "Spring Design", "Commercial Grade", "Dual Mode"],
     description:
-      "Kran dapur komersial dengan desain spring dan tinggi arc, cocok untuk restoran.",
+      "Commercial kitchen faucet with spring design and high arc, perfect for restaurants.",
     amazonLink: "https://amazon.com/fauchet-commercial-faucet",
     homedepotLink: "https://homedepot.com/fauchet-commercial-faucet",
     ebayLink: "https://ebay.com/fauchet-commercial-faucet",
     specs: {
       material: "Stainless Steel",
-      warranty: "5 Tahun",
+      warranty: "5 Years",
       certification: "NSF, SNI",
       color: "Brushed Nickel",
       pressure: "0.5 - 5 Bar",
@@ -252,8 +252,7 @@ const products: Product[] = [
     category: "Shower",
     priceUSD: 149.99,
     priceIDR: "Rp 2.250.000",
-    image:
-      "/img/products/BHF3008108SS002.jpg",
+    image: "/img/products/BHF3008108SS002.jpg",
     features: [
       "Thermostatic Control",
       "Anti Scald",
@@ -261,64 +260,19 @@ const products: Product[] = [
       "LED Display",
     ],
     description:
-      "Shower dengan kontrol termostatik menjaga suhu air tetap stabil dan aman.",
+      "Shower with thermostatic control keeps water temperature stable and safe.",
     amazonLink: "https://amazon.com/fauchet-thermostatic-shower",
     homedepotLink: "https://homedepot.com/fauchet-thermostatic-shower",
     ebayLink: "https://ebay.com/fauchet-thermostatic-shower",
     specs: {
       material: "Stainless Steel + Brass",
-      warranty: "5 Tahun",
+      warranty: "5 Years",
       certification: "CE, SNI",
       color: "Chrome, Black",
       pressure: "0.5 - 5 Bar",
       flowRate: "10 L/min",
     },
   },
-  // {
-  //   id: 11,
-  //   name: "Wall Mounted Faucet",
-  //   category: "Faucet",
-  //   priceUSD: 49.99,
-  //   priceIDR: "Rp 750.000",
-  //   image:
-  //     "https://images.unsplash.com/photo-1584622650052-8b5d2745d3a5?q=80&w=2070&auto=format&fit=crop",
-  //   features: ["Wall Mounted", "Space Saving", "Modern Design", "Anti Karat"],
-  //   description:
-  //     "Kran dengan desain wall mounted yang menghemat ruang dan terlihat modern.",
-  //   amazonLink: "https://amazon.com/fauchet-wall-faucet",
-  //   homedepotLink: "https://homedepot.com/fauchet-wall-faucet",
-  //   ebayLink: "https://ebay.com/fauchet-wall-faucet",
-  //   specs: {
-  //     material: "Stainless Steel SS-304",
-  //     warranty: "3 Tahun",
-  //     certification: "SNI",
-  //     color: "Chrome, Matt Black",
-  //     pressure: "0.5 - 5 Bar",
-  //   },
-  // },
-  // {
-  //   id: 12,
-  //   name: "Handheld Shower Set",
-  //   category: "Shower Set",
-  //   priceUSD: 34.99,
-  //   priceIDR: "Rp 525.000",
-  //   image:
-  //     "https://images.unsplash.com/photo-1582651300894-6a7f5d0d6b6b?q=80&w=2070&auto=format&fit=crop",
-  //   features: ["Handheld", "Anti Kink Hose", "5 Mode", "Easy Install"],
-  //   description:
-  //     "Set shower handheld dengan hose anti kink dan 5 mode semprotan.",
-  //   amazonLink: "https://amazon.com/fauchet-handheld-shower",
-  //   homedepotLink: "https://homedepot.com/fauchet-handheld-shower",
-  //   ebayLink: "https://ebay.com/fauchet-handheld-shower",
-  //   specs: {
-  //     material: "ABS + Chrome",
-  //     warranty: "2 Tahun",
-  //     certification: "SNI",
-  //     color: "Chrome",
-  //     pressure: "0.5 - 5 Bar",
-  //     includes: "Shower head, Hose 2m, Bracket",
-  //   },
-  // },
 ];
 
 export default function PortfolioPage() {
@@ -357,7 +311,7 @@ export default function PortfolioPage() {
     document.body.style.overflow = "unset";
   };
 
-  // Fungsi Zoom dengan pointer (mouse wheel / scroll)
+  // Zoom function with pointer (mouse wheel / scroll)
   const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
     e.preventDefault();
     const delta = e.deltaY > 0 ? -0.1 : 0.1;
@@ -365,12 +319,12 @@ export default function PortfolioPage() {
     setZoomLevel(newZoom);
   };
 
-  // Fungsi Zoom In
+  // Zoom In function
   const handleZoomIn = () => {
     setZoomLevel(Math.min(zoomLevel + 0.25, 4));
   };
 
-  // Fungsi Zoom Out
+  // Zoom Out function
   const handleZoomOut = () => {
     setZoomLevel(Math.max(zoomLevel - 0.25, 1));
   };
@@ -381,7 +335,7 @@ export default function PortfolioPage() {
     setPosition({ x: 0, y: 0 });
   };
 
-  // Drag untuk gambar yang sudah di-zoom
+  // Drag for zoomed image
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (zoomLevel > 1) {
       setIsDragging(true);
@@ -394,7 +348,7 @@ export default function PortfolioPage() {
       const newX = e.clientX - dragStart.x;
       const newY = e.clientY - dragStart.y;
 
-      // Batasi pergerakan
+      // Limit movement
       const maxX = (zoomLevel - 1) * 200;
       const maxY = (zoomLevel - 1) * 200;
 
@@ -417,9 +371,9 @@ export default function PortfolioPage() {
   return (
     <div className="relative mx-auto flex min-h-screen w-full flex-col items-center">
       <SEO
-        title="Koleksi Produk fauchet - Kran & Shower Premium | Harga Mulai $22.99"
-        description="Lihat koleksi lengkap produk fauchet: shower rain premium, kran air modern, shower set hotel, dan aksesoris kamar mandi. Tersedia di Amazon, HomeDepot, dan eBay."
-        keywords="koleksi kran air, shower premium, produk fauchet, faucet collection, kran stainless, shower hotel"
+        title="fauchet Product Collection - Premium Faucets & Showers | Starting $22.99"
+        description="View the complete collection of fauchet products: premium rain showers, modern faucets, hotel shower sets, and bathroom accessories. Available on Amazon, HomeDepot, and eBay."
+        keywords="faucet collection, premium shower, fauchet products, faucet collection, stainless faucet, hotel shower"
         image="https://citiplumb.id/images/MS-4224CPA.jpg"
         url="https://citiplumb.id/portfolio"
         type="website"
@@ -440,10 +394,10 @@ export default function PortfolioPage() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-              Produk Unggulan
+              Featured Products
             </span>
             <h1 className="mt-2 text-4xl font-bold text-blue-900 dark:text-blue-300 md:text-5xl lg:text-6xl">
-              Koleksi Terbaik
+              Best Collection
               <br />
               <span className="bg-linear-to-r from-blue-800 to-blue-400 bg-clip-text text-transparent">
                 fauchet
@@ -451,10 +405,10 @@ export default function PortfolioPage() {
             </h1>
             <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
             <p className="mx-auto mt-6 max-w-2xl text-neutral-600 dark:text-neutral-400">
-              Temukan koleksi shower dan kran air premium fauchet untuk
-              kenyamanan Anda
+              Discover the premium collection of fauchet showers and faucets for
+              your comfort
             </p>
-            <div className="mt-4 flex justify-center gap-4">
+            {/* <div className="mt-4 flex justify-center gap-4">
               <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700">
                 🛒 Amazon
               </span>
@@ -464,7 +418,7 @@ export default function PortfolioPage() {
               <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700">
                 📦 eBay
               </span>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -474,10 +428,10 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-8 flex items-center justify-between">
             <h2 className="text-xl font-bold text-blue-900 dark:text-blue-300">
-              Semua Produk ({products.length})
+              All Products ({products.length})
             </h2>
             <p className="text-sm text-neutral-500">
-              Halaman {currentPage} dari {totalPages}
+              Page {currentPage} of {totalPages}
             </p>
           </div>
 
@@ -529,7 +483,7 @@ export default function PortfolioPage() {
                     : "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-800"
                 }`}
               >
-                ← Sebelumnya
+                ← Previous
               </button>
 
               <div className="flex gap-1">
@@ -559,20 +513,20 @@ export default function PortfolioPage() {
                     : "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-800"
                 }`}
               >
-                Selanjutnya →
+                Next →
               </button>
             </nav>
           </div>
 
           <p className="mt-6 text-center text-xs text-neutral-500">
-            Menampilkan {indexOfFirstProduct + 1} -{" "}
-            {Math.min(indexOfLastProduct, products.length)} dari{" "}
-            {products.length} produk
+            Showing {indexOfFirstProduct + 1} -{" "}
+            {Math.min(indexOfLastProduct, products.length)} of {products.length}{" "}
+            products
           </p>
         </div>
       </section>
 
-      {/* Modal - Gambar dengan Zoom (Pointer + Mouse Wheel) */}
+      {/* Modal - Image with Zoom (Pointer + Mouse Wheel) */}
       <AnimatePresence>
         {isModalOpen && selectedProduct && (
           <motion.div
@@ -590,7 +544,7 @@ export default function PortfolioPage() {
               onClick={(e) => e.stopPropagation()}
               className="relative flex flex-col items-center justify-center"
             >
-              {/* Tombol Close */}
+              {/* Close Button */}
               <button
                 onClick={closeModal}
                 className="absolute -right-12 -top-12 z-10 rounded-full bg-black/50 p-2 text-white transition-all hover:bg-black/70 hover:scale-110"
@@ -610,12 +564,12 @@ export default function PortfolioPage() {
                 </svg>
               </button>
 
-              {/* Tombol Zoom Controls */}
+              {/* Zoom Control Buttons */}
               <div className="absolute -left-16 top-1/2 flex -translate-y-1/2 flex-col gap-3">
                 <button
                   onClick={handleZoomIn}
                   className="rounded-full bg-black/50 p-2 text-white transition-all hover:bg-black/70 hover:scale-110"
-                  title="Zoom In (Scroll ke atas)"
+                  title="Zoom In (Scroll up)"
                 >
                   <svg
                     className="h-6 w-6"
@@ -634,7 +588,7 @@ export default function PortfolioPage() {
                 <button
                   onClick={handleZoomOut}
                   className="rounded-full bg-black/50 p-2 text-white transition-all hover:bg-black/70 hover:scale-110"
-                  title="Zoom Out (Scroll ke bawah)"
+                  title="Zoom Out (Scroll down)"
                 >
                   <svg
                     className="h-6 w-6"
@@ -673,17 +627,17 @@ export default function PortfolioPage() {
                 )}
               </div>
 
-              {/* Informasi Zoom */}
+              {/* Zoom Info */}
               <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-3 py-1 text-xs text-white">
-                {Math.round(zoomLevel * 100)}% • Scroll mouse untuk zoom
+                {Math.round(zoomLevel * 100)}% • Scroll mouse to zoom
               </div>
 
-              {/* Nama Produk */}
+              {/* Product Name */}
               <div className="absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-black/50 px-4 py-1 text-sm font-medium text-white">
                 {selectedProduct.name}
               </div>
 
-              {/* Container Gambar dengan Zoom & Drag */}
+              {/* Image Container with Zoom & Drag */}
               <div
                 ref={containerRef}
                 className="overflow-hidden rounded-xl"

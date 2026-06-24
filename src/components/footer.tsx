@@ -12,7 +12,7 @@ export default function Footer() {
     // Handle newsletter subscription
     console.log("Subscribed with email:", email);
     setEmail("");
-    alert("Terima kasih telah berlangganan newsletter citiplumb!");
+    alert("Thank you for subscribing to the citiplumb newsletter!");
   };
 
   return (
@@ -23,10 +23,10 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="text-center md:text-left">
               <h3 className="text-xl font-bold text-blue-900 dark:text-blue-300">
-                Newsletter citiplumb
+                citiplumb Newsletter
               </h3>
               <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-                Dapatkan informasi produk terbaru dan penawaran spesial
+                Get the latest product updates and special offers
               </p>
             </div>
             <form
@@ -35,7 +35,7 @@ export default function Footer() {
             >
               <input
                 type="email"
-                placeholder="Email Anda"
+                placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -45,7 +45,7 @@ export default function Footer() {
                 type="submit"
                 className="rounded-lg bg-linear-to-r from-blue-800 to-blue-500 px-6 py-2 font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Berlangganan
+                Subscribe
               </button>
             </form>
           </div>
@@ -58,15 +58,18 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="size-8 rounded-full bg-linear-to-br from-blue-900 to-blue-400" />
+              <img
+                src="/logo.png"
+                alt="logo CITI PLUMB"
+                className="h-8 md:h-10"
+              />
               <h2 className="text-xl font-bold text-blue-900 dark:text-blue-300">
-                citiplumb
+                PT. CITI PLUMB
               </h2>
             </div>
             <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Produsen kran air dan shower premium dengan standar internasional.
-              Material SS-304 anti karat, teknologi hemat air, dan desain
-              modern.
+              Using automatic machines and masters in their expertise make it
+              easy to create high quality products with international standards
             </p>
             <div className="flex gap-3">
               <span className="text-xl">🏆</span>
@@ -79,7 +82,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="mb-4 font-semibold text-blue-900 dark:text-blue-300">
-              Tautan Cepat
+              Quick Links
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -87,7 +90,7 @@ export default function Footer() {
                   href="/"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Beranda
+                  Home
                 </Link>
               </li>
               <li>
@@ -95,7 +98,7 @@ export default function Footer() {
                   href="/about"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Tentang Kami
+                  About Us
                 </Link>
               </li>
               <li>
@@ -103,7 +106,7 @@ export default function Footer() {
                   href="/services"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Layanan
+                  Services
                 </Link>
               </li>
               <li>
@@ -111,7 +114,7 @@ export default function Footer() {
                   href="/portfolio"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Portofolio
+                  Portfolio
                 </Link>
               </li>
               <li>
@@ -119,7 +122,7 @@ export default function Footer() {
                   href="/contact"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Kontak
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -128,47 +131,47 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h3 className="mb-4 font-semibold text-blue-900 dark:text-blue-300">
-              Produk
+              Products
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/portfolio"
+                  href="/products"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Shower Premium
+                  Premium Shower
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/portfolio"
+                  href="/products"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Kran Air
+                  Faucets
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/portfolio"
+                  href="/products"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Faucet Set
+                  Faucet Sets
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/portfolio"
+                  href="/products"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Shower Panel
+                  Shower Panels
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/portfolio"
+                  href="/products"
                   className="text-neutral-600 transition-colors hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400"
                 >
-                  Aksesoris Kamar Mandi
+                  Bathroom Accessories
                 </Link>
               </li>
             </ul>
@@ -177,13 +180,12 @@ export default function Footer() {
           {/* Contact & Social */}
           <div>
             <h3 className="mb-4 font-semibold text-blue-900 dark:text-blue-300">
-              Hubungi Kami
+              Contact Us
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
                 <span>📍</span>
                 <span>
-                  {" "}
                   Jl. Raya Plosowahyu Babat, Sawah, Plosowahyu, Kec. Lamongan,
                   Kabupaten Lamongan, Jawa Timur 622
                 </span>
@@ -194,56 +196,37 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
                 <span>✉️</span>
-                <span>info@citiplumb.id</span>
+                <div>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    pt.citiplumb@gmail.com
+                  </p>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    info@citiplumb.id
+                  </p>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    sales@citiplumb.id
+                  </p>
+                </div>
               </li>
               <li className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
                 <span>🕒</span>
-                <span>Senin - Jumat: 08:00 - 17:00</span>
-               
+                <span>Monday - Friday: 08:00 - 17:00</span>
               </li>
               <li className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
                 <span>🕒</span>
-                <span>Sabtu: 08:00 - 12:15</span>
+                <span>Saturday: 08:00 - 12:15</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Partner / Marketplace */}
-        <div className="mt-8 border-t border-blue-100 pt-8 dark:border-blue-900/50">
-          <h3 className="mb-4 text-center text-sm font-semibold text-blue-900 dark:text-blue-300">
-            Tersedia di Marketplace
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#"
-              className="rounded-full bg-orange-100 px-4 py-1.5 text-sm font-medium text-orange-700 transition-all hover:scale-105 dark:bg-orange-950/50 dark:text-orange-400"
-            >
-              🛒 Amazon
-            </a>
-            <a
-              href="#"
-              className="rounded-full bg-orange-100 px-4 py-1.5 text-sm font-medium text-orange-700 transition-all hover:scale-105 dark:bg-orange-950/50 dark:text-orange-400"
-            >
-              🏪 HomeDepot
-            </a>
-            <a
-              href="#"
-              className="rounded-full bg-orange-100 px-4 py-1.5 text-sm font-medium text-orange-700 transition-all hover:scale-105 dark:bg-orange-950/50 dark:text-orange-400"
-            >
-              📦 eBay
-            </a>
-          </div>
-        </div>
 
         {/* Copyright - Dynamic Year */}
         <div className="mt-8 border-t border-blue-100 pt-6 text-center dark:border-blue-900/50">
           <p className="text-xs text-neutral-500">
             &copy; {currentYear} citiplumb - Premium Water Solutions. All rights
             reserved.
-          </p>
-          <p className="mt-1 text-xs text-neutral-400">
-            Designed with 💧 for better water solutions
           </p>
         </div>
       </div>

@@ -26,23 +26,36 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://citiplumb.id"),
   title: {
-    default: "citiplumb - Premium Water Solutions | Kran & Shower Berkualitas",
+    default: "CITI PLUMB - Premium Faucets & Shower Solutions",
     template: "%s | citiplumb",
   },
   description:
-    "citiplumb adalah produsen kran air dan shower premium dengan material SS-304 anti karat, teknologi hemat air, dan desain modern. Tersedia untuk rumah tangga, hotel, dan proyek komersial.",
+    "High-quality faucets and shower solutions manufactured with advanced automation and expert craftsmanship to meet international standards. Durable SS-304 stainless steel, modern designs, and water-saving technology for residential, hospitality, and commercial projects.",
   keywords: [
-    "kran air",
-    "shower premium",
-    "citiplumb",
-    "kran stainless",
-    "shower hotel",
-    "faucet Indonesia",
+    "faucet manufacturer",
+    "premium faucets",
+    "shower solutions",
+    "stainless steel faucet",
+    "SS304 faucet",
+    "bathroom fixtures",
+    "sanitary ware",
     "water solutions",
-    "kran anti karat",
-    "shower hemat air",
+    "water-saving faucet",
+    "water-saving shower",
+    "hotel shower system",
+    "commercial bathroom fixtures",
+    "bathroom accessories",
+    "modern faucet design",
+    "anti-rust faucet",
+    "Indonesia faucet manufacturer",
+    "citiplumb",
   ],
-  authors: [{ name: "citiplumb", url: "https://citiplumb.id" }],
+  authors: [
+    {
+      name: "citiplumb",
+      url: "https://citiplumb.id",
+    },
+  ],
   creator: "citiplumb",
   publisher: "citiplumb",
   robots: {
@@ -58,12 +71,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "id_ID",
+    locale: "en_US",
     url: "https://citiplumb.id",
     siteName: "citiplumb - Premium Water Solutions",
-    title: "citiplumb - Kran & Shower Premium Indonesia",
+    title: "citiplumb - Premium Faucets & Shower Solutions",
     description:
-      "Produsen kran air dan shower premium dengan standar internasional. Material SS-304 anti karat, teknologi hemat air hingga 40%.",
+      "High-quality faucets and shower solutions manufactured with advanced automation and expert craftsmanship to meet international standards.",
     images: [
       {
         url: "/favicon.png",
@@ -75,8 +88,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "citiplumb - Premium Water Solutions",
-    description: "Produsen kran air dan shower premium berkualitas tinggi",
+    title: "citiplumb - Premium Faucets & Shower Solutions",
+    description:
+      "High-quality faucets and shower solutions manufactured to international standards.",
     images: ["/twitter-image.jpg"],
     creator: "@citiplumb",
     site: "@citiplumb",
@@ -91,8 +105,9 @@ export const metadata: Metadata = {
   verification: {
     google: "verifikasi-google-anda",
   },
-  category: "business",
-  classification: "Manufacturing, Water Solutions",
+  category: "Manufacturing",
+  classification:
+    "Faucet Manufacturing, Shower Solutions, Bathroom Fixtures, Water Solutions",
 };
 
 async function getMaintenanceStatus() {
@@ -116,22 +131,33 @@ export default async function RootLayout({
 }>) {
   // Baca status maintenance dari database
   const maintenance = await getMaintenanceStatus();
-  const maintenanceMode = maintenance.enabled === true;
+  const maintenanceMode = maintenance?.enabled === true;
 
   // Dapatkan pathname
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") || "";
+
+  // Cek apakah di halaman maintenance
   const isMaintenancePage = pathname === "/maintenance";
 
-  console.log("🔧 Layout - Maintenance Mode:", maintenanceMode);
-  console.log("📍 Layout - Pathname:", pathname);
-  console.log("📍 Layout - Is Maintenance Page:", isMaintenancePage);
+  // Cek apakah di halaman auth (login, register, dll)
+  const isAuthPage =
+    pathname?.startsWith("/login") ||
+    pathname?.startsWith("/admin/login") ||
+    pathname === "/login" ||
+    pathname?.startsWith("/register") ||
+    pathname?.startsWith("/auth");
+
+  // Cek apakah di halaman admin
+  const isAdminPage = pathname?.startsWith("/admin");
 
   // Sembunyikan Navbar dan Footer jika:
   // 1. Maintenance mode AKTIF DAN sedang di halaman maintenance
   // 2. Atau maintenance mode AKTIF (untuk halaman yang akan di-redirect)
-  const hideNavbarFooter = maintenanceMode && !isMaintenancePage;
-
+  // 3. Atau di halaman auth (login/register)
+  // 4. Atau di halaman admin
+  const hideNavbarFooter =
+    (maintenanceMode && !isMaintenancePage) || isAuthPage || isAdminPage;
   return (
     <html
       lang="id"
@@ -163,20 +189,22 @@ export default async function RootLayout({
               name: "citiplumb",
               url: "https://citiplumb.id",
               logo: "https://citiplumb.id/logo.png",
-              description: "Produsen kran air dan shower premium Indonesia",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Jl. Raya Industri No. 123",
-                addressLocality: "Sidoarjo",
-                addressRegion: "Jawa Timur",
-                postalCode: "61256",
-                addressCountry: "ID",
+              description:
+                "Premium faucet and shower manufacturer producing high-quality water solutions with advanced automation and expert craftsmanship that meet international standards.",
+              slogan:
+                "Premium Faucets and Shower Solutions Built to International Standards",
+              foundingLocation: {
+                "@type": "Place",
+                name: "Indonesia",
+              },
+              areaServed: {
+                "@type": "Country",
+                name: "Indonesia",
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+621234567890",
-                contactType: "customer service",
-                email: "info@citiplumb.id",
+                contactType: "Customer Support",
+                availableLanguage: ["English", "Indonesian"],
               },
               sameAs: [
                 "https://www.facebook.com/citiplumb",
@@ -184,18 +212,28 @@ export default async function RootLayout({
                 "https://www.linkedin.com/company/citiplumb",
                 "https://twitter.com/citiplumb",
               ],
+              keywords: [
+                "faucet manufacturer",
+                "premium faucets",
+                "shower solutions",
+                "bathroom fixtures",
+                "water solutions",
+                "SS304 stainless steel faucet",
+                "water-saving shower",
+                "sanitary ware",
+              ],
             }),
           }}
         />
       </head>
       <body className="min-h-full flex flex-col">
         {/* Navbar hanya ditampilkan jika maintenance NONAKTIF */}
-        {!maintenanceMode && <Navbar />}
+        {!hideNavbarFooter && <Navbar />}
 
         <main className="flex-1">{children}</main>
 
         {/* Footer hanya ditampilkan jika maintenance NONAKTIF */}
-        {!maintenanceMode && <Footer />}
+        {!hideNavbarFooter && <Footer />}
       </body>
     </html>
   );
