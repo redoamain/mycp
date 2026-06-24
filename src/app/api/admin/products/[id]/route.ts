@@ -4,18 +4,22 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+type Params = Promise<{ id: string }>;
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Params },
 ) {
   try {
-    const id = parseInt(params.id);
-    if (isNaN(id)) {
+    const { id } = await params;
+    const productId = parseInt(id);
+
+    if (isNaN(productId)) {
       return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
     }
 
     const product = await prisma.product.findUnique({
-      where: { id },
+      where: { id: productId },
       include: {
         category: true,
       },
@@ -37,18 +41,20 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Params },
 ) {
   try {
-    const id = parseInt(params.id);
-    if (isNaN(id)) {
+    const { id } = await params;
+    const productId = parseInt(id);
+
+    if (isNaN(productId)) {
       return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
     }
 
     const body = await request.json();
 
     const product = await prisma.product.update({
-      where: { id },
+      where: { id: productId },
       data: {
         name: body.name,
         slug: body.slug,
@@ -76,16 +82,27 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Params },
 ) {
   try {
-    const id = parseInt(params.id);
-    if (isNaN(id)) {
+    const { id } = await params;
+    const productId = parseInt(id);
+
+    if (isNaN(productId)) {
       return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
     }
 
+    // Cek apakah produk exists
+    const existing = await prisma.product.findUnique({
+      where: { id: productId },
+    });
+
+    if (!existing) {
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
+
     await prisma.product.delete({
-      where: { id },
+      where: { id: productId },
     });
 
     return NextResponse.json({ success: true });
