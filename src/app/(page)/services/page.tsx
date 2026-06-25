@@ -10,9 +10,9 @@ export default function ServicesPage() {
       id: "moulding",
       icon: "/img/icon/MOLDING.png",
       title: "Moulding",
-      subtitle: "Custom Mold Manufacturing",
+      subtitle: "Mold Design & Tooling",
       description:
-        "Design and manufacture custom molds according to your product specifications, supported by an experienced engineering team.",
+        "Transforming concepts into production-ready molds with precision engineering, optimized design, and reliable tooling solutions for various manufacturing applications.",
       features: [
         "Professional CAD/CAM design",
         "High precision molds",
@@ -26,9 +26,9 @@ export default function ServicesPage() {
       id: "moulding-stainles",
       icon: "/img/icon/STAINLESS.png",
       title: "Stainless Steel Moulding",
-      subtitle: "Custom Mold Manufacturing",
+      subtitle: "Mold Design & Tooling",
       description:
-        "Design and manufacture custom molds according to your product specifications, supported by an experienced engineering team.",
+        "Transforming concepts into production-ready molds with precision engineering, optimized design, and reliable tooling solutions for various manufacturing applications.",
       features: [
         "Professional CAD/CAM design",
         "High precision molds",
@@ -41,10 +41,10 @@ export default function ServicesPage() {
     {
       id: "injection",
       icon: "/img/icon/INJECTION.png",
-      title: "Injection Moulding",
-      subtitle: "High Precision Plastic Molding",
+      title: "Injection",
+      subtitle: "Plastic Injection Molding",
       description:
-        "Injection moulding process with advanced machinery to produce high-quality plastic components with the best accuracy and consistency.",
+        "Delivering high-quality plastic components through advanced injection molding technology, efficient production processes, and strict quality control standards.",
       features: [
         "Capacity 48-280 tons",
         "High accuracy ±0.01mm",
@@ -57,10 +57,10 @@ export default function ServicesPage() {
     {
       id: "plating",
       icon: "/img/icon/PLATING.png", // Ganti dengan path icon
-      title: "Plating / Electroplating",
+      title: "Electroplating",
       subtitle: "Premium Anti-Rust Chrome Coating",
       description:
-        "Modern electroplating technology to provide high-quality chrome coating that is shiny, rust-resistant, and durable.",
+        "Providing professional surface finishing solutions that enhance product durability, corrosion resistance, and aesthetic appeal for both plastic and metal components.",
       features: [
         "Thick chrome coating",
         "Eco-friendly process",
@@ -102,6 +102,40 @@ export default function ServicesPage() {
       ],
       image: "/img/services/assembly.webp",
     },
+    {
+      id: "Quality",
+      icon: "/img/icon/QC.png",
+      title: "Quality Assurance",
+      subtitle: "Testing & Inspection Services",
+      description:
+        "Maintaining consistent product quality through rigorous testing procedures, advanced inspection equipment, and continuous process improvement.",
+      features: [
+        "Incoming material inspection",
+        "In-process quality control",
+        "Functional & performance testing",
+        "Advanced inspection equipment",
+        "Defect analysis & corrective actions",
+        "Continuous process improvement",
+      ],
+      image: "/img/services/qc.webp",
+    },
+    {
+      id: "Oem",
+      icon: "/img/icon/ASSEMBLY.png",
+      title: "OEM & ODM Manufacturing",
+      subtitle: "Custom Product Development & Assembly",
+      description:
+        "Delivering comprehensive OEM and ODM manufacturing solutions, from product concept, design, engineering, and prototyping to component assembly, testing, and mass production. We help customers bring high-quality products to market with reliable manufacturing support and strict quality standards.",
+      features: [
+        "Custom product design & development",
+        "Engineering & prototyping support",
+        "Component sourcing & procurement",
+        "Automated component assembly",
+        "Quality assurance & functional testing",
+        "Mass production capacity up to 6,000 units/day",
+      ],
+      image: "/img/services/assembly.webp",
+    },
   ];
 
   const processSteps = [
@@ -110,6 +144,7 @@ export default function ServicesPage() {
     { step: 3, name: "Plating", icon: "/img/icon/PLATING.png" },
     { step: 4, name: "Spray", icon: "/img/icon/SPRAY.png" },
     { step: 5, name: "Assembly", icon: "/img/icon/ASSEMBLY.png" },
+    { step: 6, name: "QC", icon: "/img/icon/QC.png" },
   ];
 
   return (
@@ -163,6 +198,10 @@ export default function ServicesPage() {
             <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-300">
               CITI PLUMB Manufacturing Process
             </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-neutral-600 dark:text-neutral-400">
+              Supporting your business with integrated manufacturing solutions,
+              from product development to mass production.
+            </p>
             <div className="mx-auto mt-2 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
           </motion.div>
 

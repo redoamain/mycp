@@ -9,23 +9,23 @@ const servicesData = [
   {
     id: "moulding",
     icon: "/img/icon/MOLDING.png",
-    title: "Moulding",
+    title: "Mold Design & Tooling",
     description:
-      "Design and manufacture custom molds according to your product specifications.",
+      "Transforming concepts into production-ready molds with precision engineering.",
   },
   {
     id: "injection",
     icon: "/img/icon/INJECTION.png",
-    title: "Injection Moulding",
+    title: "Plastic Injection Molding",
     description:
-      "Injection moulding process with advanced machinery to produce high-quality.",
+      "Delivering high-quality plastic components through advanced injection",
   },
   {
     id: "plating",
     icon: "/img/icon/PLATING.png",
-    title: "Plating / Electroplating",
+    title: "Electroplating",
     description:
-      "Modern electroplating technology to provide high-quality chrome coating.",
+      "Providing professional surface finishing solutions",
   },
   {
     id: "spray",

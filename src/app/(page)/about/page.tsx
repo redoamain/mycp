@@ -140,10 +140,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 pb-5">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { number: "10+", label: "Years of Experience", icon: "⭐" },
-              { number: "50K+", label: "Units Sold", icon: "🚿" },
-              { number: "500+", label: "Hotel Partners", icon: "🏨" },
-              { number: "100%", label: "Client Satisfaction", icon: "😊" },
+              // { number: "10+", label: "Years of Experience", icon: "⭐" },
+              // { number: "50K+", label: "Units Sold", icon: "🚿" },
+              // { number: "500+", label: "Hotel Partners", icon: "🏨" },
+              // { number: "100%", label: "Client Satisfaction", icon: "😊" },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -153,13 +153,13 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="rounded-xl bg-white p-6 text-center shadow-md dark:bg-neutral-800"
               >
-                <div className="text-3xl mb-2">{stat.icon}</div>
+                {/* <div className="text-3xl mb-2">{stat.icon}</div>
                 <div className="text-2xl font-bold text-blue-700 dark:text-blue-400">
                   {stat.number}
                 </div>
                 <div className="text-sm text-neutral-600 dark:text-neutral-400">
                   {stat.label}
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </div>
