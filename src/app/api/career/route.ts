@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 export async function GET(request: NextRequest) {
   try {
     console.log("🔍 GET /api/career");
-    
+
     const { searchParams } = new URL(request.url);
     const status = searchParams.get("status");
     const department = searchParams.get("department");
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
     console.error("❌ Error fetching careers:", error);
     return NextResponse.json(
       { error: "Failed to fetch careers" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -49,12 +49,13 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     console.log("📝 POST /api/career");
-    
+
     const body = await request.json();
     console.log("📦 Received body:", body);
 
     const {
       title,
+      image, // Tambahkan image
       department,
       type,
       status,
@@ -71,70 +72,69 @@ export async function POST(request: NextRequest) {
 
     // Validasi - hanya field yang wajib
     if (!title || title.trim() === "") {
-      return NextResponse.json(
-        { error: "Title is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Title is required" }, { status: 400 });
     }
 
     if (!department || department.trim() === "") {
       return NextResponse.json(
         { error: "Department is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!type || type.trim() === "") {
-      return NextResponse.json(
-        { error: "Type is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Type is required" }, { status: 400 });
     }
 
     if (!description || description.trim() === "") {
       return NextResponse.json(
         { error: "Description is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // Proses requirements, skills, guidelines
-    // Jika berupa string dengan koma, split menjadi array
-    // Jika sudah array, gunakan langsung
     let requirementsArray: string[] = [];
     let skillsArray: string[] = [];
     let guidelinesArray: string[] = [];
 
-    // Handle requirements
     if (requirements) {
-      if (typeof requirements === 'string') {
-        requirementsArray = requirements.split(',').map(s => s.trim()).filter(s => s !== '');
+      if (typeof requirements === "string") {
+        requirementsArray = requirements
+          .split(",")
+          .map((s) => s.trim())
+          .filter((s) => s !== "");
       } else if (Array.isArray(requirements)) {
-        requirementsArray = requirements.filter(s => s && s.trim() !== '');
+        requirementsArray = requirements.filter((s) => s && s.trim() !== "");
       }
     }
 
-    // Handle skills
     if (skills) {
-      if (typeof skills === 'string') {
-        skillsArray = skills.split(',').map(s => s.trim()).filter(s => s !== '');
+      if (typeof skills === "string") {
+        skillsArray = skills
+          .split(",")
+          .map((s) => s.trim())
+          .filter((s) => s !== "");
       } else if (Array.isArray(skills)) {
-        skillsArray = skills.filter(s => s && s.trim() !== '');
+        skillsArray = skills.filter((s) => s && s.trim() !== "");
       }
     }
 
-    // Handle guidelines
     if (guidelines) {
-      if (typeof guidelines === 'string') {
-        guidelinesArray = guidelines.split(',').map(s => s.trim()).filter(s => s !== '');
+      if (typeof guidelines === "string") {
+        guidelinesArray = guidelines
+          .split(",")
+          .map((s) => s.trim())
+          .filter((s) => s !== "");
       } else if (Array.isArray(guidelines)) {
-        guidelinesArray = guidelines.filter(s => s && s.trim() !== '');
+        guidelinesArray = guidelines.filter((s) => s && s.trim() !== "");
       }
     }
 
     const career = await prisma.career.create({
       data: {
         title: title.trim(),
+        image: image || "", // Tambahkan image dengan default empty string
         department: department.trim(),
         type: type.trim(),
         status: status || "open",
@@ -156,7 +156,7 @@ export async function POST(request: NextRequest) {
     console.error("❌ Error creating career:", error);
     return NextResponse.json(
       { error: "Failed to create career", details: String(error) },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -165,15 +165,12 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     console.log("📝 PUT /api/career");
-    
+
     const body = await request.json();
     const { id, ...data } = body;
 
     if (!id) {
-      return NextResponse.json(
-        { error: "ID is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "ID is required" }, { status: 400 });
     }
 
     // Cek apakah career exists
@@ -182,29 +179,40 @@ export async function PUT(request: NextRequest) {
     });
 
     if (!existing) {
-      return NextResponse.json(
-        { error: "Career not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Career not found" }, { status: 404 });
     }
 
     // Proses requirements, skills, guidelines jika ada
     if (data.requirements) {
-      if (typeof data.requirements === 'string') {
-        data.requirements = data.requirements.split(',').map((s: string) => s.trim()).filter((s: string) => s !== '');
+      if (typeof data.requirements === "string") {
+        data.requirements = data.requirements
+          .split(",")
+          .map((s: string) => s.trim())
+          .filter((s: string) => s !== "");
       }
     }
 
     if (data.skills) {
-      if (typeof data.skills === 'string') {
-        data.skills = data.skills.split(',').map((s: string) => s.trim()).filter((s: string) => s !== '');
+      if (typeof data.skills === "string") {
+        data.skills = data.skills
+          .split(",")
+          .map((s: string) => s.trim())
+          .filter((s: string) => s !== "");
       }
     }
 
     if (data.guidelines) {
-      if (typeof data.guidelines === 'string') {
-        data.guidelines = data.guidelines.split(',').map((s: string) => s.trim()).filter((s: string) => s !== '');
+      if (typeof data.guidelines === "string") {
+        data.guidelines = data.guidelines
+          .split(",")
+          .map((s: string) => s.trim())
+          .filter((s: string) => s !== "");
       }
+    }
+
+    // Pastikan image tetap ada jika tidak diupdate
+    if (data.image === undefined) {
+      data.image = existing.image;
     }
 
     const career = await prisma.career.update({
@@ -218,7 +226,7 @@ export async function PUT(request: NextRequest) {
     console.error("❌ Error updating career:", error);
     return NextResponse.json(
       { error: "Failed to update career" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -227,27 +235,20 @@ export async function PUT(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   try {
     console.log("🗑️ DELETE /api/career");
-    
+
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
 
     if (!id) {
-      return NextResponse.json(
-        { error: "ID is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "ID is required" }, { status: 400 });
     }
 
-    // Cek apakah career exists
     const existing = await prisma.career.findUnique({
       where: { id },
     });
 
     if (!existing) {
-      return NextResponse.json(
-        { error: "Career not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Career not found" }, { status: 404 });
     }
 
     await prisma.career.delete({
@@ -260,7 +261,7 @@ export async function DELETE(request: NextRequest) {
     console.error("❌ Error deleting career:", error);
     return NextResponse.json(
       { error: "Failed to delete career" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

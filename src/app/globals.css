@@ -131,11 +131,12 @@
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-mono;
-  }
-}
 
+}
+/* Atau untuk semua elemen */
+* {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
 /* src/app/globals.css */
 /* Rich Text Editor Styles */
 .rich-editor {

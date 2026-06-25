@@ -83,19 +83,12 @@ const Navbar = () => {
     return "bg-white";
   };
 
-  const getLoginButtonStyle = () => {
-    if (isScrolled || !isHomePage) {
-      return "bg-blue-600 hover:bg-blue-700 text-white";
-    }
-    return "bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border border-white/30";
-  };
-
   return (
     <>
       <nav
         className={`fixed top-0 z-50 flex w-full items-center justify-between px-4 py-3 md:px-8 lg:px-16 transition-all duration-300 ${getNavbarStyle()}`}
       >
-        {/* Logo Section */}
+        {/* Logo Section - Left */}
         <Link
           href="/"
           className="flex items-center gap-2 transition-opacity hover:opacity-80 z-50"
@@ -104,12 +97,12 @@ const Navbar = () => {
           <h1
             className={`text-lg font-bold md:text-2xl transition-colors ${getTextColor()}`}
           >
-           PT. CITI PLUMB
+            PT. CITI PLUMB
           </h1>
         </Link>
 
-        {/* Desktop Navigation Links - Visible on tablet and up (md) */}
-        <div className="absolute left-1/2 hidden -translate-x-1/2 transform items-center gap-4 md:flex lg:gap-6 xl:gap-10">
+        {/* Desktop Navigation Links - Right side */}
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
           {menuItems.map((item) => {
             const isActive = getActiveStatus(item.href);
             return (
@@ -131,33 +124,11 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Right Section - Login & Mobile Menu Button */}
-        <div className="flex items-center gap-3 z-50">
-          {/* Login Button - Desktop */}
-          <Link
-            href="/admin"
-            className={`hidden md:flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg ${getLoginButtonStyle()}`}
-          >
-            <svg
-              className="size-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-            Login
-          </Link>
-
-          {/* Hamburger Button - Visible on mobile and tablet (below md) */}
+        {/* Mobile Menu Button - Right side */}
+        <div className="flex items-center gap-3 z-50 md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`inline-flex items-center justify-center rounded-lg p-2 transition-all duration-300 md:hidden ${
+            className={`inline-flex items-center justify-center rounded-lg p-2 transition-all duration-300 ${
               isScrolled || !isHomePage
                 ? "text-black hover:bg-black/5"
                 : "text-white hover:bg-white/10"
@@ -204,13 +175,13 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
-            {/* Mobile Menu Drawer */}
+            {/* Mobile Menu Drawer - Left Side */}
             <motion.div
-              initial={{ x: "100%" }}
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 z-40 w-70 sm:w-[320px] bg-white shadow-2xl"
+              className="fixed inset-y-0 left-0 z-40 w-70 sm:w-[320px] bg-white shadow-2xl"
             >
               {/* Header Drawer */}
               <div className="flex items-center justify-between border-b border-black/10 p-4">
@@ -285,31 +256,6 @@ const Navbar = () => {
                     </Link>
                   );
                 })}
-
-                {/* Divider */}
-                <div className="my-4 border-t border-black/10" />
-
-                {/* Login Button - Mobile */}
-                <Link
-                  href="/admin"
-                  className="flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 text-base font-medium text-white transition-all hover:bg-blue-700 hover:scale-105"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <svg
-                    className="size-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>
-                  Login
-                </Link>
               </div>
             </motion.div>
           </>

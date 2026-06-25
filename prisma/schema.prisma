@@ -70,6 +70,7 @@ model Category {
 model Career {
   id           String   @id @default(cuid())
   title        String
+  image        String  @default("")
   department   String
   type         String   // Full Time, Part Time, Shift, Contract
   status       String   @default("open") // open | closed

@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
@@ -8,21 +8,8 @@ import Footer from "@/components/footer";
 import { headers } from "next/headers";
 import prisma from "@/lib/prisma";
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://citiplumb.id"),
   title: {
@@ -159,17 +146,7 @@ export default async function RootLayout({
   const hideNavbarFooter =
     (maintenanceMode && !isMaintenancePage) || isAuthPage || isAdminPage;
   return (
-    <html
-      lang="id"
-      className={cn(
-        "h-full",
-        "antialiased",
-        geistSans.variable,
-        geistMono.variable,
-        "font-mono",
-        jetbrainsMono.variable,
-      )}
-    >
+    <html lang="id" className={cn("h-full", "antialiased")}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -186,7 +163,7 @@ export default async function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "citiplumb",
+              name: "CITI PLUMB",
               url: "https://citiplumb.id",
               logo: "https://citiplumb.id/logo.png",
               description:
@@ -226,11 +203,11 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className={`${inter.className} min-h-full flex flex-col`}>
         {/* Navbar hanya ditampilkan jika maintenance NONAKTIF */}
         {!hideNavbarFooter && <Navbar />}
 
-        <main className="flex-1">{children}</main>
+        <main className={`${inter.className} flex-1`}>{children}</main>
 
         {/* Footer hanya ditampilkan jika maintenance NONAKTIF */}
         {!hideNavbarFooter && <Footer />}

@@ -13,6 +13,7 @@ import {
 interface Job {
   id: string;
   title: string;
+  image: string; // Tambahkan field image
   department: string;
   type: string;
   status: "open" | "closed";
@@ -213,34 +214,55 @@ export default function CareerPage() {
                   transition={{ delay: index * 0.05 }}
                   className="bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 overflow-hidden shadow-sm hover:shadow-md transition"
                 >
-                  {/* Header */}
+                  {/* Header with Image */}
                   <div
                     className="p-5 cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700/50 transition"
                     onClick={() => toggleExpand(job.id)}
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                      <div className="flex items-start gap-3">
-                        <div className="text-3xl">{job.icon || "💼"}</div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-black dark:text-white">
-                            {job.title}
-                          </h3>
-                          <div className="flex flex-wrap items-center gap-2 mt-1">
-                            <span className="text-sm text-neutral-500 bg-neutral-100 dark:bg-neutral-700 px-2 py-0.5 rounded">
-                              {job.department}
-                            </span>
-                            <span className="text-sm text-neutral-500">
-                              {job.type}
-                            </span>
-                            {job.location && (
-                              <span className="text-sm text-neutral-500 flex items-center gap-1">
-                                <IconLocation className="w-3 h-3" />
-                                {job.location}
-                              </span>
-                            )}
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                      {/* Left: Image & Content */}
+                      <div className="flex items-start gap-4 flex-1">
+                        {/* Image - New */}
+                        {job.image && (
+                          <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-700">
+                            <img
+                              src={job.image}
+                              alt={job.title}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src =
+                                  "/placeholder-job.png";
+                              }}
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start gap-2">
+                            <div className="text-2xl">{job.icon || "💼"}</div>
+                            <div>
+                              <h3 className="text-lg font-semibold text-black dark:text-white">
+                                {job.title}
+                              </h3>
+                              <div className="flex flex-wrap items-center gap-2 mt-1">
+                                <span className="text-sm text-neutral-500 bg-neutral-100 dark:bg-neutral-700 px-2 py-0.5 rounded">
+                                  {job.department}
+                                </span>
+                                <span className="text-sm text-neutral-500">
+                                  {job.type}
+                                </span>
+                                {job.location && (
+                                  <span className="text-sm text-neutral-500 flex items-center gap-1">
+                                    <IconLocation className="w-3 h-3" />
+                                    {job.location}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
+
+                      {/* Right: Status & Date */}
                       <div className="flex items-center gap-3 shrink-0">
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -256,9 +278,12 @@ export default function CareerPage() {
                         </span>
                       </div>
                     </div>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">
+
+                    {/* Description */}
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-3 line-clamp-2">
                       {job.description.replace(/<[^>]*>/g, "")}
                     </p>
+
                     {/* Skills preview */}
                     <div className="flex flex-wrap gap-1.5 mt-3">
                       {job.skills.slice(0, 4).map((skill, i) => (
@@ -288,6 +313,21 @@ export default function CareerPage() {
                         className="border-t border-neutral-200 dark:border-neutral-700"
                       >
                         <div className="p-5 space-y-4">
+                          {/* Full Image in Expanded View */}
+                          {job.image && (
+                            <div className="rounded-lg overflow-hidden">
+                              <img
+                                src={job.image}
+                                alt={job.title}
+                                className="w-full h-auto object-contain"
+                                onError={(e) => {
+                                  (e.target as HTMLImageElement).src =
+                                    "/placeholder-job.png";
+                                }}
+                              />
+                            </div>
+                          )}
+
                           {/* Requirements */}
                           {job.requirements.length > 0 && (
                             <div>

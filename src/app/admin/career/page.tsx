@@ -12,6 +12,7 @@ import {
 interface Job {
   id: string;
   title: string;
+  image: string;
   department: string;
   type: string;
   status: "open" | "closed";
@@ -29,6 +30,7 @@ interface Job {
 
 interface JobPayload {
   title: string;
+  image: string;
   department: string;
   type: string;
   status: string;
@@ -54,6 +56,7 @@ export default function CareerManagement() {
   const [editingJob, setEditingJob] = useState<Job | null>(null);
   const [formData, setFormData] = useState({
     title: "",
+    image: "",
     department: "",
     type: "Full Time",
     status: "open",
@@ -68,6 +71,8 @@ export default function CareerManagement() {
     education: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     fetchJobs();
@@ -100,21 +105,54 @@ export default function CareerManagement() {
 
   const parseTextToArray = (text: string) => {
     if (!text) return [];
-    // Split by newline first
     const lines = text.split("\n").filter((s) => s.trim() !== "");
     if (lines.length > 0) return lines;
-    // If no newline, split by comma
     return text
       .split(",")
       .map((s) => s.trim())
       .filter((s) => s !== "");
   };
 
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+
+    try {
+      const formDataImage = new FormData();
+      formDataImage.append("file", file);
+
+      const response = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formDataImage,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Gagal upload gambar");
+      }
+
+      const imageUrl = result.url;
+
+      setFormData((prev) => ({ ...prev, image: imageUrl }));
+      setImagePreview(imageUrl);
+      alert("✅ Gambar berhasil diupload!");
+    } catch (error: any) {
+      console.error("Error uploading image:", error);
+      alert("❌ " + (error.message || "Gagal upload gambar"));
+    } finally {
+      setIsUploading(false);
+      // Reset input file
+      e.target.value = "";
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Validasi
     if (
       !formData.title ||
       !formData.department ||
@@ -127,9 +165,9 @@ export default function CareerManagement() {
     }
 
     try {
-      // Buat payload tanpa id
       const payload: JobPayload = {
         title: formData.title,
+        image: formData.image || "",
         department: formData.department,
         type: formData.type,
         status: formData.status,
@@ -144,13 +182,10 @@ export default function CareerManagement() {
         education: formData.education || null,
       };
 
-      console.log("📦 Payload:", payload);
-
       let finalPayload: JobPayload | JobPayloadWithId = payload;
       let url = "/api/career";
       let method = "POST";
 
-      // Jika edit, tambahkan id
       if (editingJob) {
         finalPayload = { ...payload, id: editingJob.id };
         method = "PUT";
@@ -182,8 +217,10 @@ export default function CareerManagement() {
 
   const resetForm = () => {
     setEditingJob(null);
+    setImagePreview(null);
     setFormData({
       title: "",
+      image: "",
       department: "",
       type: "Full Time",
       status: "open",
@@ -208,6 +245,7 @@ export default function CareerManagement() {
     setEditingJob(job);
     setFormData({
       title: job.title || "",
+      image: job.image || "",
       department: job.department || "",
       type: job.type || "Full Time",
       status: job.status || "open",
@@ -221,6 +259,7 @@ export default function CareerManagement() {
       experience: job.experience || "",
       education: job.education || "",
     });
+    setImagePreview(job.image || null);
     setIsModalOpen(true);
   };
 
@@ -269,74 +308,90 @@ export default function CareerManagement() {
 
       {/* Table */}
       <div className="bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-        <table className="w-full text-sm">
-          <thead className="bg-neutral-50 dark:bg-neutral-900/50">
-            <tr className="border-b border-neutral-200 dark:border-neutral-700">
-              <th className="text-left py-3 px-4">#</th>
-              <th className="text-left py-3 px-4">Posisi</th>
-              <th className="text-left py-3 px-4">Departemen</th>
-              <th className="text-left py-3 px-4">Tipe</th>
-              <th className="text-left py-3 px-4">Status</th>
-              <th className="text-left py-3 px-4">Tanggal</th>
-              <th className="text-center py-3 px-4">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            {jobs.length === 0 ? (
-              <tr>
-                <td colSpan={7} className="text-center py-8 text-neutral-500">
-                  Belum ada data
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="bg-neutral-50 dark:bg-neutral-900/50">
+              <tr className="border-b border-neutral-200 dark:border-neutral-700">
+                <th className="text-left py-3 px-4">#</th>
+                <th className="text-left py-3 px-4">Gambar</th>
+                <th className="text-left py-3 px-4">Posisi</th>
+                <th className="text-left py-3 px-4">Departemen</th>
+                <th className="text-left py-3 px-4">Tipe</th>
+                <th className="text-left py-3 px-4">Status</th>
+                <th className="text-left py-3 px-4">Tanggal</th>
+                <th className="text-center py-3 px-4">Aksi</th>
               </tr>
-            ) : (
-              jobs.map((job, index) => (
-                <tr
-                  key={job.id}
-                  className="border-b border-neutral-100 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
-                >
-                  <td className="py-3 px-4">{index + 1}</td>
-                  <td className="py-3 px-4 font-medium">{job.title}</td>
-                  <td className="py-3 px-4">{job.department}</td>
-                  <td className="py-3 px-4">
-                    <span className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 rounded text-xs">
-                      {job.type}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4">
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        job.status === "open"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
-                      }`}
-                    >
-                      {job.status === "open" ? "✅ Dibuka" : "🔒 Ditutup"}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4 text-neutral-500">
-                    {formatDate(job.postedDate)}
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center justify-center gap-2">
-                      <button
-                        onClick={() => openEditModal(job)}
-                        className="p-1.5 text-blue-600 hover:bg-blue-50 rounded transition"
-                      >
-                        <IconEdit className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() => handleDelete(job.id)}
-                        className="p-1.5 text-red-600 hover:bg-red-50 rounded transition"
-                      >
-                        <IconTrash className="w-4 h-4" />
-                      </button>
-                    </div>
+            </thead>
+            <tbody>
+              {jobs.length === 0 ? (
+                <tr>
+                  <td colSpan={8} className="text-center py-8 text-neutral-500">
+                    Belum ada data
                   </td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ) : (
+                jobs.map((job, index) => (
+                  <tr
+                    key={job.id}
+                    className="border-b border-neutral-100 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                  >
+                    <td className="py-3 px-4">{index + 1}</td>
+                    <td className="py-3 px-4">
+                      {job.image ? (
+                        <img
+                          src={job.image}
+                          alt={job.title}
+                          className="w-12 h-12 object-cover rounded-lg"
+                        />
+                      ) : (
+                        <div className="w-12 h-12 bg-neutral-100 dark:bg-neutral-700 rounded-lg flex items-center justify-center text-neutral-400">
+                          📷
+                        </div>
+                      )}
+                    </td>
+                    <td className="py-3 px-4 font-medium">{job.title}</td>
+                    <td className="py-3 px-4">{job.department}</td>
+                    <td className="py-3 px-4">
+                      <span className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 rounded text-xs">
+                        {job.type}
+                      </span>
+                    </td>
+                    <td className="py-3 px-4">
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          job.status === "open"
+                            ? "bg-green-100 text-green-700"
+                            : "bg-red-100 text-red-700"
+                        }`}
+                      >
+                        {job.status === "open" ? "✅ Dibuka" : "🔒 Ditutup"}
+                      </span>
+                    </td>
+                    <td className="py-3 px-4 text-neutral-500">
+                      {formatDate(job.postedDate)}
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <button
+                          onClick={() => openEditModal(job)}
+                          className="p-1.5 text-blue-600 hover:bg-blue-50 rounded transition"
+                        >
+                          <IconEdit className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(job.id)}
+                          className="p-1.5 text-red-600 hover:bg-red-50 rounded transition"
+                        >
+                          <IconTrash className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Modal */}
@@ -434,6 +489,51 @@ export default function CareerManagement() {
                     className="w-full px-3 py-2 border rounded-lg dark:bg-neutral-900 focus:ring-2 focus:ring-blue-500"
                     placeholder="💼"
                   />
+                </div>
+              </div>
+
+              {/* Image Upload */}
+              <div>
+                <label className="block text-sm font-medium mb-1 text-neutral-700 dark:text-neutral-300">
+                  Gambar Lowongan
+                </label>
+                <div className="flex items-start gap-4">
+                  <div className="flex-1">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={isUploading}
+                      className="w-full px-3 py-2 border rounded-lg dark:bg-neutral-900 focus:ring-2 focus:ring-blue-500 disabled:opacity-50 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                    />
+                    <p className="text-xs text-neutral-400 mt-1">
+                      Format: JPG, PNG, WebP, GIF | Max: 5MB
+                    </p>
+                    {isUploading && (
+                      <p className="text-xs text-blue-600 mt-1">
+                        ⏳ Uploading...
+                      </p>
+                    )}
+                  </div>
+                  {imagePreview && (
+                    <div className="flex-shrink-0 text-center">
+                      <img
+                        src={imagePreview}
+                        alt="Preview"
+                        className="w-20 h-20 object-cover rounded-lg border border-neutral-200 dark:border-neutral-700"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setImagePreview(null);
+                          setFormData({ ...formData, image: "" });
+                        }}
+                        className="text-xs text-red-500 hover:text-red-700 mt-1 block"
+                      >
+                        Hapus
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -569,7 +669,7 @@ export default function CareerManagement() {
               <div className="flex gap-3 pt-4 border-t border-neutral-200 dark:border-neutral-700">
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || isUploading}
                   className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:opacity-50 font-medium"
                 >
                   {isSubmitting

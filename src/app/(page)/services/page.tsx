@@ -8,7 +8,7 @@ export default function ServicesPage() {
   const services = [
     {
       id: "moulding",
-      icon: "🏭",
+      icon: "/img/icon/MOLDING.png",
       title: "Moulding",
       subtitle: "Custom Mold Manufacturing",
       description:
@@ -24,7 +24,7 @@ export default function ServicesPage() {
     },
     {
       id: "moulding-stainles",
-      icon: "🏭",
+      icon: "/img/icon/STAINLESS.png",
       title: "Stainless Steel Moulding",
       subtitle: "Custom Mold Manufacturing",
       description:
@@ -40,13 +40,13 @@ export default function ServicesPage() {
     },
     {
       id: "injection",
-      icon: "💉",
+      icon: "/img/icon/INJECTION.png",
       title: "Injection Moulding",
       subtitle: "High Precision Plastic Molding",
       description:
         "Injection moulding process with advanced machinery to produce high-quality plastic components with the best accuracy and consistency.",
       features: [
-        "Capacity 100-1000 tons",
+        "Capacity 48-280 tons",
         "High accuracy ±0.01mm",
         "Premium materials (ABS, PC, PP, Nylon)",
         "Fast cycle time",
@@ -56,7 +56,7 @@ export default function ServicesPage() {
     },
     {
       id: "plating",
-      icon: "✨",
+      icon: "/img/icon/PLATING.png", // Ganti dengan path icon
       title: "Plating / Electroplating",
       subtitle: "Premium Anti-Rust Chrome Coating",
       description:
@@ -72,7 +72,7 @@ export default function ServicesPage() {
     },
     {
       id: "spray",
-      icon: "🎨",
+      icon: "/img/icon/SPRAY.png", // Ganti dengan path icon
       title: "Spray Coating",
       subtitle: "Premium Paint Finishing",
       description:
@@ -88,7 +88,7 @@ export default function ServicesPage() {
     },
     {
       id: "assembly",
-      icon: "🔧",
+      icon: "/img/icon/ASSEMBLY.png", // Ganti dengan path icon
       title: "Assembly",
       subtitle: "Component Assembly",
       description:
@@ -98,10 +98,18 @@ export default function ServicesPage() {
         "Strict quality control",
         "Product function testing",
         "Professional packaging",
-        "Capacity 10,000 units/day",
+        "Capacity 6,000 units/day",
       ],
       image: "/img/services/assembly.webp",
     },
+  ];
+
+  const processSteps = [
+    { step: 1, name: "Moulding", icon: "/img/icon/MOLDING.png" },
+    { step: 2, name: "Injection", icon: "/img/icon/INJECTION.png" },
+    { step: 3, name: "Plating", icon: "/img/icon/PLATING.png" },
+    { step: 4, name: "Spray", icon: "/img/icon/SPRAY.png" },
+    { step: 5, name: "Assembly", icon: "/img/icon/ASSEMBLY.png" },
   ];
 
   return (
@@ -135,8 +143,8 @@ export default function ServicesPage() {
             </h1>
             <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-blue-400" />
             <p className="mx-auto mt-6 max-w-2xl text-neutral-600 dark:text-neutral-400">
-              CITI PLUMB provides integrated manufacturing services from upstream
-              to downstream to produce premium quality components
+              CITI PLUMB provides integrated manufacturing services from
+              upstream to downstream to produce premium quality components
             </p>
           </motion.div>
         </div>
@@ -159,56 +167,26 @@ export default function ServicesPage() {
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-            {[
-              {
-                step: 1,
-                name: "Moulding",
-                icon: "🏭",
-                color: "from-blue-700 to-blue-500",
-              },
-              {
-                step: 2,
-                name: "Injection",
-                icon: "💉",
-                color: "from-blue-900 to-blue-700",
-              },
-              {
-                step: 3,
-                name: "Plating",
-                icon: "✨",
-                color: "from-blue-800 to-blue-600",
-              },
-              {
-                step: 4,
-                name: "Spray",
-                icon: "🎨",
-                color: "from-blue-500 to-blue-300",
-              },
-              {
-                step: 5,
-                name: "Assembly",
-                icon: "🔧",
-                color: "from-blue-600 to-blue-400",
-              },
-            ].map((process, idx) => (
+            {processSteps.map((process, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative flex flex-col items-center"
               >
-                <div
-                  className={`flex h-20 w-20 flex-col items-center justify-center rounded-full bg-linear-to-br ${process.color} text-white shadow-lg`}
-                >
-                  <div className="text-2xl">{process.icon}</div>
-                  <div className="text-xs font-bold">{process.step}</div>
+                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-br from-blue-600 via-blue-500 to-blue-400 shadow-lg shadow-blue-500/30">
+                  <img
+                    src={process.icon}
+                    alt={process.name}
+                    className="h-10 w-10 object-contain brightness-0 invert"
+                  />
                 </div>
                 <p className="mt-2 text-sm font-semibold text-blue-800 dark:text-blue-300">
                   {process.name}
                 </p>
-                {idx < 4 && (
+                {idx < processSteps.length - 1 && (
                   <div className="absolute -right-4 top-8 hidden text-xl text-blue-400 md:block">
                     →
                   </div>
@@ -248,7 +226,14 @@ export default function ServicesPage() {
               {/* Content */}
               <div className="flex flex-col justify-center space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="text-5xl">{service.icon}</div>
+                  {/* Icon dengan background biru gradasi bulat */}
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-blue-600 via-blue-500 to-blue-400 shadow-lg shadow-blue-500/30">
+                    <img
+                      src={service.icon}
+                      alt={service.title}
+                      className="h-9 w-9 object-contain brightness-0 invert"
+                    />
+                  </div>
                   <div>
                     <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
                       Service {idx + 1} / {services.length}
@@ -314,27 +299,27 @@ export default function ServicesPage() {
             {[
               {
                 label: "Injection Machines",
-                value: "15 Units",
-                detail: "Capacity 50-1000 tons",
+                value: "58 Units",
+                detail: "Capacity 48-280 tons",
               },
               {
                 label: "Plating Lines",
-                value: "5 Lines",
-                detail: "Capacity 50,000 pcs/day",
+                value: "2 Lines",
+                detail: "Capacity 10,000 pcs/day",
               },
               {
                 label: "Assembly Lines",
-                value: "8 Lines",
-                detail: "Capacity 10,000 units/day",
+                value: "3 Lines",
+                detail: "Capacity 6,000 units/day",
               },
               {
                 label: "Spray Booths",
-                value: "10 Booths",
-                detail: "Capacity 20,000 pcs/day",
+                value: "5 Booths",
+                detail: "Capacity 5,000 pcs/day",
               },
               {
                 label: "Moulding",
-                value: "50+ Molds",
+                value: "800+ Molds",
                 detail: "Custom design available",
               },
               {

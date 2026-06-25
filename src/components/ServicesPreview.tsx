@@ -8,33 +8,38 @@ import { useRef, useState, useEffect } from "react";
 const servicesData = [
   {
     id: "moulding",
-    icon: "🏭",
+    icon: "/img/icon/MOLDING.png",
     title: "Moulding",
-    description: "Desain dan pembuatan cetakan custom dengan presisi tinggi.",
+    description:
+      "Design and manufacture custom molds according to your product specifications.",
   },
   {
     id: "injection",
-    icon: "💉",
+    icon: "/img/icon/INJECTION.png",
     title: "Injection Moulding",
-    description: "Cetakan plastik presisi tinggi dengan mesin canggih.",
+    description:
+      "Injection moulding process with advanced machinery to produce high-quality.",
   },
   {
     id: "plating",
-    icon: "✨",
+    icon: "/img/icon/PLATING.png",
     title: "Plating / Electroplating",
-    description: "Lapisan chrome premium anti karat.",
+    description:
+      "Modern electroplating technology to provide high-quality chrome coating.",
   },
   {
     id: "spray",
-    icon: "🎨",
+    icon: "/img/icon/SPRAY.png",
     title: "Spray Coating",
-    description: "Finishing cat premium tahan lama dan estetis.",
+    description:
+      "Spray coating services with various color options and finishes that are durable, scratch-resistant, and aesthetic.",
   },
   {
     id: "assembly",
-    icon: "🔧",
+    icon: "/img/icon/ASSEMBLY.png",
     title: "Assembly",
-    description: "Perakitan komponen dengan quality control ketat.",
+    description:
+      "Component assembly services with strict quality control standards.",
   },
 ];
 
@@ -77,7 +82,6 @@ export default function ServicesPreview() {
     }
   };
 
-  // Drag to scroll
   const handleMouseDown = (e: React.MouseEvent) => {
     if (scrollRef.current) {
       setIsDragging(true);
@@ -120,7 +124,7 @@ export default function ServicesPreview() {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-2 sm:mb-3">
             Manufacturing{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-blue-700">
               Solutions
             </span>
           </h2>
@@ -176,10 +180,15 @@ export default function ServicesPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="min-w-[260px] sm:min-w-[280px] md:min-w-[320px] lg:min-w-[350px] bg-white dark:bg-neutral-800 rounded-xl p-5 sm:p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex-shrink-0 snap-start hover:-translate-y-1 group"
+                className="min-w-65 sm:min-w-70 md:min-w-[320px] lg:min-w-87.5 bg-white dark:bg-neutral-800 rounded-xl p-5 sm:p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 shrink-0 snap-start hover:-translate-y-1 group"
               >
-                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
-                  {service.icon}
+                {/* Icon dengan background biru gradasi bulat */}
+                <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 shadow-lg shadow-blue-500/30 mb-3 sm:mb-4">
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    className="h-7 w-7 sm:h-8 sm:w-8 object-contain brightness-0 invert"
+                  />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-blue-900 dark:text-blue-300">
                   {service.title}
@@ -238,7 +247,7 @@ export default function ServicesPreview() {
         <div className="text-center mt-8 sm:mt-10 md:mt-12">
           <Link
             href="/services"
-            className="inline-block rounded-lg bg-gradient-to-r from-blue-800 to-blue-500 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            className="inline-block rounded-lg bg-linear-to-r from-blue-800 to-blue-500 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
           >
             View All Services →
           </Link>

@@ -16,7 +16,10 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
-
+import { Geist, Inter } from "next/font/google";
+const geist = Geist({
+  subsets: ["latin"],
+});
 export default function AdminLayout({
   children,
 }: {
@@ -256,7 +259,7 @@ export default function AdminLayout({
                   label: username,
                   href: "#",
                   icon: (
-                    <div className="h-7 w-7 shrink-0 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold text-xs shadow-md">
+                    <div className="h-7 w-7 shrink-0 rounded-full bg-linear-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold text-xs shadow-md">
                       {username?.charAt(0).toUpperCase() || "A"}
                     </div>
                   ),
