@@ -31,9 +31,9 @@ export default function ImagesSliderDemo() {
 
   // Hero slider images
   const heroImages = [
-    "/img/header/1.jpg",
-    "/img/header/2.jpg",
-    "/img/header/3.jpg",
+    "/img/header/4.jpg",
+    "/img/header/5.jpg",
+    "/img/header/6.jpg",
   ];
 
   useEffect(() => {
