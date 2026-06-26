@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "motion/react";
-import Navbar from "@/components/navbar";
+
 import Link from "next/link";
 
 export default function ContactPage() {
   return (
     <div className="relative mx-auto flex min-h-screen w-full flex-col items-center">
-      <Navbar />
+ 
 
       {/* Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">

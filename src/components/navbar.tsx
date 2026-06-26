@@ -17,6 +17,7 @@ const Navbar = () => {
     { name: "Services", href: "/services" },
     { name: "Products", href: "/products" },
     { name: "Career", href: "/career" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Contacts", href: "/contact" },
   ];
 
@@ -183,18 +184,8 @@ const Navbar = () => {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed inset-y-0 left-0 z-40 w-70 sm:w-[320px] bg-white shadow-2xl"
             >
-              {/* Header Drawer */}
-              <div className="flex items-center justify-between border-b border-black/10 p-4">
-                <Link
-                  href="/"
-                  className="flex items-center gap-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <img src="/logo.png" alt="logo" className="h-8" />
-                  <span className="text-lg font-bold text-black">
-                    CITI PLUMB
-                  </span>
-                </Link>
+              {/* Header Drawer - Hanya tombol close, tanpa logo duplikat */}
+              <div className="flex items-center justify-end border-b border-black/10 p-4">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="rounded-lg p-2 text-black/50 hover:bg-black/5 hover:text-black transition-colors"

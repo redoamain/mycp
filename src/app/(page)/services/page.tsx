@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Navbar from "@/components/navbar";
+
 import Link from "next/link";
 
 export default function ServicesPage() {
@@ -20,7 +20,7 @@ export default function ServicesPage() {
         "Customized to your needs",
         "Fast track moulding",
       ],
-      image: "/img/services/moulding.webp",
+      image: "/img/galery/moulding/4.webp",
     },
     {
       id: "moulding-stainles",
@@ -36,7 +36,7 @@ export default function ServicesPage() {
         "Customized to your needs",
         "Fast track moulding",
       ],
-      image: "/img/services/moulding-stainles.webp",
+      image: "/img/galery/moulding/3.webp",
     },
     {
       id: "injection",
@@ -52,7 +52,7 @@ export default function ServicesPage() {
         "Fast cycle time",
         "Mass production",
       ],
-      image: "/img/services/injeksi.webp",
+      image: "/img/galery/injeksi/1.webp",
     },
     {
       id: "plating",
@@ -68,7 +68,7 @@ export default function ServicesPage() {
         "Premium shiny finish",
         "Strong adhesion",
       ],
-      image: "/img/services/plating.webp",
+      image: "/img/galery/pl/1.webp",
     },
     {
       id: "spray",
@@ -84,7 +84,7 @@ export default function ServicesPage() {
         "Electrostatic technology",
         "Eco-friendly",
       ],
-      image: "/img/services/spray.webp",
+      image: "/img/galery/sp/1.webp",
     },
     {
       id: "assembly",
@@ -100,7 +100,7 @@ export default function ServicesPage() {
         "Professional packaging",
         "Capacity 6,000 units/day",
       ],
-      image: "/img/services/assembly.webp",
+      image: "/img/galery/ass/1.webp",
     },
     {
       id: "Quality",
@@ -117,7 +117,7 @@ export default function ServicesPage() {
         "Defect analysis & corrective actions",
         "Continuous process improvement",
       ],
-      image: "/img/services/qc.webp",
+      image: "/img/galery/qc/2.webp",
     },
     {
       id: "Oem",
@@ -134,7 +134,7 @@ export default function ServicesPage() {
         "Quality assurance & functional testing",
         "Mass production capacity up to 6,000 units/day",
       ],
-      image: "/img/services/assembly.webp",
+      image: "/img/galery/gudang/2.webp",
     },
   ];
 
@@ -149,7 +149,6 @@ export default function ServicesPage() {
 
   return (
     <div className="relative mx-auto flex min-h-screen w-full flex-col items-center">
-      <Navbar />
 
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">

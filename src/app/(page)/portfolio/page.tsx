@@ -378,7 +378,7 @@ export default function PortfolioPage() {
         url="https://citiplumb.id/portfolio"
         type="website"
       />
-      <Navbar />
+   
 
       {/* Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">

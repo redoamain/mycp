@@ -8,13 +8,19 @@ import Footer from "@/components/footer";
 import { headers } from "next/headers";
 import prisma from "@/lib/prisma";
 
+// OPTIMASI: Tambahkan display swap dan variable
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // Penting! menghindari FOIT
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"], // Hanya weight yang diperlukan
+});
 
-const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://citiplumb.id"),
   title: {
     default: "CITI PLUMB - Premium Faucets & Shower Solutions",
-    template: "%s | citiplumb",
+    template: "%s | CITI PLUMB", // Kapitalisasi brand
   },
   description:
     "High-quality faucets and shower solutions manufactured with advanced automation and expert craftsmanship to meet international standards. Durable SS-304 stainless steel, modern designs, and water-saving technology for residential, hospitality, and commercial projects.",
@@ -36,20 +42,19 @@ export const metadata: Metadata = {
     "anti-rust faucet",
     "Indonesia faucet manufacturer",
     "citiplumb",
-    "cp",
     "CITI PLUMB",
     "Pabrik faucet Lamongan",
     "pabrik sanitary ware Indonesia",
-    "pabrik kran di lamongan"
+    "pabrik kran di lamongan",
   ].join(", "),
   authors: [
     {
-      name: "citiplumb",
+      name: "CITI PLUMB",
       url: "https://citiplumb.id",
     },
   ],
-  creator: "citiplumb",
-  publisher: "citiplumb",
+  creator: "CITI PLUMB",
+  publisher: "CITI PLUMB",
   robots: {
     index: true,
     follow: true,
@@ -63,24 +68,29 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "id_ID",
+    alternateLocale: ["en_US"],
     url: "https://citiplumb.id",
-    siteName: "citiplumb - Premium Water Solutions",
-    title: "citiplumb - Premium Faucets & Shower Solutions",
+    siteName: "CITI PLUMB - Premium Water Solutions",
+    title: "CITI PLUMB - Premium Faucets & Shower Solutions Manufacturer",
     description:
-      "High-quality faucets and shower solutions manufactured with advanced automation and expert craftsmanship to meet international standards.",
+      "Leading faucet and shower manufacturer in Indonesia producing premium SS304 stainless steel water solutions with advanced automation and expert craftsmanship.",
     images: [
       {
-        url: "/favicon.png",
+        url: "/img/products/BHF38101MBSD003.jpg",
         width: 1200,
         height: 630,
-        alt: "citiplumb Premium Water Solutions",
+        alt: "CITI PLUMB - Premium Faucets & Shower Solutions",
+        type: "image/jpeg",
       },
     ],
+    emails: ["info@citiplumb.id"],
+    phoneNumbers: ["+62 821-4354-5599"],
+    countryName: "Indonesia",
   },
   twitter: {
     card: "summary_large_image",
-    title: "citiplumb - Premium Faucets & Shower Solutions",
+    title: "CITI PLUMB - Premium Faucets & Shower Solutions",
     description:
       "High-quality faucets and shower solutions manufactured to international standards.",
     images: ["/twitter-image.jpg"],
@@ -100,6 +110,24 @@ export const metadata: Metadata = {
   category: "Manufacturing",
   classification:
     "Faucet Manufacturing, Shower Solutions, Bathroom Fixtures, Water Solutions",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#5bbad5",
+      },
+    ],
+  },
 };
 
 async function getMaintenanceStatus() {
@@ -121,100 +149,47 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Baca status maintenance dari database
   const maintenance = await getMaintenanceStatus();
   const maintenanceMode = maintenance?.enabled === true;
 
-  // Dapatkan pathname
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") || "";
 
-  // Cek apakah di halaman maintenance
   const isMaintenancePage = pathname === "/maintenance";
-
-  // Cek apakah di halaman auth (login, register, dll)
   const isAuthPage =
     pathname?.startsWith("/login") ||
     pathname?.startsWith("/admin/login") ||
     pathname === "/login" ||
     pathname?.startsWith("/register") ||
     pathname?.startsWith("/auth");
-
-  // Cek apakah di halaman admin
   const isAdminPage = pathname?.startsWith("/admin");
 
-  // Sembunyikan Navbar dan Footer jika:
-  // 1. Maintenance mode AKTIF DAN sedang di halaman maintenance
-  // 2. Atau maintenance mode AKTIF (untuk halaman yang akan di-redirect)
-  // 3. Atau di halaman auth (login/register)
-  // 4. Atau di halaman admin
   const hideNavbarFooter =
     (maintenanceMode && !isMaintenancePage) || isAuthPage || isAdminPage;
+
   return (
     <html lang="id" className={cn("h-full", "antialiased")}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        {/* Hanya preconnect ke Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "CITI PLUMB",
-              url: "https://citiplumb.id",
-              logo: "https://citiplumb.id/logo.png",
-              description:
-                "Premium faucet and shower manufacturer producing high-quality water solutions with advanced automation and expert craftsmanship that meet international standards.",
-              slogan:
-                "Premium Faucets and Shower Solutions Built to International Standards",
-              foundingLocation: {
-                "@type": "Place",
-                name: "Indonesia",
-              },
-              areaServed: {
-                "@type": "Country",
-                name: "Indonesia",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "Customer Support",
-                availableLanguage: ["English", "Indonesian"],
-              },
-              sameAs: [
-                "https://www.facebook.com/citiplumb",
-                "https://www.instagram.com/citiplumb",
-                "https://www.linkedin.com/company/citiplumb",
-                "https://twitter.com/citiplumb",
-              ],
-              keywords: [
-                "faucet manufacturer",
-                "premium faucets",
-                "shower solutions",
-                "bathroom fixtures",
-                "water solutions",
-                "SS304 stainless steel faucet",
-                "water-saving shower",
-                "sanitary ware",
-              ],
-            }),
-          }}
-        />
+
+        {/* Hapus semua preload font manual - Next.js sudah handle otomatis */}
+        {/* Jangan tambahkan <link rel="preload" href="/_next/static/media/..."> */}
+
+        {/* Meta tag untuk performance */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       </head>
-      <body className={`${inter.className} min-h-full flex flex-col`}>
-        {/* Navbar hanya ditampilkan jika maintenance NONAKTIF */}
+      <body
+        className={`${inter.variable} ${inter.className} min-h-full flex flex-col antialiased`}
+      >
         {!hideNavbarFooter && <Navbar />}
-
-        <main className={`${inter.className} flex-1`}>{children}</main>
-
-        {/* Footer hanya ditampilkan jika maintenance NONAKTIF */}
+        <main className="flex-1">{children}</main>
         {!hideNavbarFooter && <Footer />}
       </body>
     </html>

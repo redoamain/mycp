@@ -1,22 +1,67 @@
 "use client";
 
 import { motion } from "motion/react";
-import Navbar from "@/components/navbar";
-import Link from "next/link";
+import {
+  Target,
+  Lightbulb,
+  Calendar,
+  Award,
+  Factory,
+  Wrench,
+  Shield,
+  Globe,
+} from "lucide-react";
 import CertificateSection from "@/components/CertificateSection";
 
 export default function AboutPage() {
+  const journeyData = [
+    {
+      year: "2015",
+      title: "Company Founded",
+      description:
+        "CITI PLUMB began its journey as a small factory in Lamongan, East Java.",
+    },
+    {
+      year: "2017",
+      title: "Factory Expansion",
+      description:
+        "Built a 50,000 m² factory and started producing showers and faucets.",
+    },
+
+    {
+      year: "2026",
+      title: "Continuous Innovation",
+      description:
+        "Continuously innovating with water-saving technology and modern designs.",
+    },
+  ];
+
+  const values = [
+    {
+      icon: <Factory className="h-7 w-7 text-blue-600" />,
+      title: "Precision Manufacturing",
+      description:
+        "Delivering exact specifications with cutting-edge technology",
+    },
+    {
+      icon: <Shield className="h-7 w-7 text-blue-600" />,
+      title: "Quality Assurance",
+      description: "Stringent quality control at every stage of production",
+    },
+    {
+      icon: <Wrench className="h-7 w-7 text-blue-600" />,
+      title: "Integrated Solutions",
+      description: "End-to-end manufacturing services from design to delivery",
+    },
+    {
+      icon: <Globe className="h-7 w-7 text-blue-600" />,
+      title: "Global Standards",
+      description: "Meeting international manufacturing and safety standards",
+    },
+  ];
+
   return (
-    <div className="relative mx-auto flex min-h-screen w-full flex-col items-center">
-      <Navbar />
-
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 h-125 w-125 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-r from-blue-900/20 to-blue-300/20 blur-3xl" />
-        <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-blue-800/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
-      </div>
-
+    <div className="relative mx-auto min-h-screen w-full">
       {/* Hero Section */}
       <section className="w-full py-20 md:py-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
@@ -29,7 +74,7 @@ export default function AboutPage() {
               About Us
             </span>
             <h1 className="mt-2 text-4xl font-bold text-blue-900 dark:text-blue-300 md:text-5xl lg:text-6xl">
-              Get to Know
+              Get To Know
               <br />
               <span className="bg-linear-to-r from-blue-800 to-blue-400 bg-clip-text text-transparent">
                 CITI PLUMB
@@ -41,21 +86,22 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="w-full py-12">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="rounded-2xl bg-white p-8 shadow-lg dark:bg-neutral-800/50"
+              transition={{ duration: 0.6 }}
+              className="rounded-2xl bg-white p-10 dark:bg-blue-900/20 shadow-xl"
             >
-              <div className="mb-4 text-5xl">🎯</div>
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600">
+                <Target className="h-7 w-7 text-white" />
+              </div>
               <h3 className="mb-3 text-2xl font-bold text-blue-900 dark:text-blue-300">
-                Vision
+                Our Vision
               </h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
+              <p className="leading-relaxed text-gray-700 dark:text-gray-300">
                 To beautify and bring more functionality to every kitchen and
                 bathroom through product design innovation and luxury.
               </p>
@@ -64,15 +110,16 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="rounded-2xl bg-white p-8 shadow-lg dark:bg-neutral-800/50"
+              transition={{ duration: 0.6 }}
+              className="rounded-2xl bg-white shadow-xl p-10 dark:bg-green-900/20"
             >
-              <div className="mb-4 text-5xl">🚀</div>
-              <h3 className="mb-3 text-2xl font-bold text-blue-900 dark:text-blue-300">
-                Mission
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-600">
+                <Lightbulb className="h-7 w-7 text-white" />
+              </div>
+              <h3 className="mb-3 text-2xl font-bold text-green-900 dark:text-green-300">
+                Our Mission
               </h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
+              <p className="leading-relaxed text-gray-700 dark:text-gray-300">
                 To realize kitchen and bathroom fixtures with innovative models,
                 durability, water efficiency, and affordable prices for every
                 consumer.
@@ -82,89 +129,118 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* History */}
-      <section className="w-full py-12">
-        <div className="mx-auto max-w-7xl px-4">
+      {/* Core Values */}
+      <section className="bg-gray-50 py-20 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="rounded-2xl bg-linear-to-br from-blue-50 to-white p-8 shadow-lg dark:from-blue-950/20 dark:to-neutral-800/50"
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
           >
-            <div className="mb-6 flex items-center gap-3">
-              <div className="text-4xl">📖</div>
-              <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-300">
-                CITI PLUMB Journey
-              </h2>
-            </div>
-
-            <div className="relative border-l-2 border-blue-200 pl-6 dark:border-blue-800">
-              <div className="mb-8">
-                <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600"></div>
-                <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2015 - Founding
-                </h3>
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  CITI PLUMB began its journey as a small factory in Lamongan,
-                  East Java.
-                </p>
-              </div>
-              <div className="mb-8">
-                <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600"></div>
-                <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2017 - Factory Expansion
-                </h3>
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  Built a 50,000 m² factory and started producing showers and
-                  faucets.
-                </p>
-              </div>
-              <div>
-                <div className="absolute -left-2 mt-1 h-4 w-4 rounded-full bg-blue-600 animate-pulse"></div>
-                <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
-                  2026 - Continuous Innovation
-                </h3>
-                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                  Continuously innovating with water-saving technology and
-                  modern designs.
-                </p>
-              </div>
-            </div>
+            <h2 className="mb-3 text-4xl font-bold text-blue-900 dark:text-blue-300">
+              Our Core Values
+            </h2>
+            <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-400">
+              The principles that guide our manufacturing excellence
+            </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Statistics */}
-      <section className="w-full py-12">
-        <div className="mx-auto max-w-7xl px-4 pb-5">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {[
-              // { number: "10+", label: "Years of Experience", icon: "⭐" },
-              // { number: "50K+", label: "Units Sold", icon: "🚿" },
-              // { number: "500+", label: "Hotel Partners", icon: "🏨" },
-              // { number: "100%", label: "Client Satisfaction", icon: "😊" },
-            ].map((stat, idx) => (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {values.map((value, index) => (
               <motion.div
-                key={idx}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-xl bg-white p-6 text-center shadow-md dark:bg-neutral-800"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="rounded-2xl bg-white p-6 text-center shadow-lg transition-transform hover:scale-105 dark:bg-gray-800"
               >
-                {/* <div className="text-3xl mb-2">{stat.icon}</div>
-                <div className="text-2xl font-bold text-blue-700 dark:text-blue-400">
-                  {stat.number}
+                <div className="mb-4 flex justify-center">
+                  <div className="rounded-full bg-blue-100 p-3 dark:bg-blue-900/30">
+                    {value.icon}
+                  </div>
                 </div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-400">
-                  {stat.label}
-                </div> */}
+                <h4 className="mb-2 text-xl font-semibold text-blue-900 dark:text-blue-300">
+                  {value.title}
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {value.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
-      <CertificateSection/>
+      </section>
+
+      {/* Our Journey */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 text-center"
+          >
+            <h2 className="mb-3 text-4xl font-bold text-blue-900 dark:text-blue-300">
+              Our Journey
+            </h2>
+            <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-400">
+              The milestones that shaped our company's story
+            </p>
+          </motion.div>
+
+          <div className="relative mx-auto max-w-3xl">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-1/2 h-full w-0.5 -translate-x-1/2 bg-blue-300 dark:bg-blue-700" />
+
+            {journeyData.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`relative mb-12 flex items-center ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                }`}
+              >
+                {/* Year Circle */}
+                <div className="absolute left-1/2 z-10 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-blue-600 bg-white text-sm font-bold text-blue-600 dark:border-blue-400 dark:bg-gray-800 dark:text-blue-400">
+                  {item.year.slice(-2)}
+                </div>
+
+                {/* Content */}
+                <div
+                  className={`w-5/12 ${
+                    index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
+                  }`}
+                >
+                  <div
+                    className={`rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-gray-800 ${
+                      index % 2 === 0 ? "mr-4" : "ml-4"
+                    }`}
+                  >
+                    <h4 className="text-lg font-bold text-blue-900 dark:text-blue-300">
+                      {item.title}
+                    </h4>
+                    <p className="mt-2 text-gray-600 dark:text-gray-400">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Empty spacer for alignment */}
+                <div className="w-5/12" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Simple Stats */}
+      <section className="border-t border-gray-200 py-8 dark:border-gray-800 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+         <CertificateSection/>
+        </div>
       </section>
     </div>
   );
