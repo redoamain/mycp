@@ -36,7 +36,12 @@ export const metadata: Metadata = {
     "anti-rust faucet",
     "Indonesia faucet manufacturer",
     "citiplumb",
-  ],
+    "cp",
+    "CITI PLUMB",
+    "Pabrik faucet Lamongan",
+    "pabrik sanitary ware Indonesia",
+    "pabrik kran di lamongan"
+  ].join(", "),
   authors: [
     {
       name: "citiplumb",
@@ -90,7 +95,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "verifikasi-google-anda",
+    google: "EhE5OAmY12aFr4jnmDlHTxIUh35_aT61dqhIzDknyFM",
   },
   category: "Manufacturing",
   classification:

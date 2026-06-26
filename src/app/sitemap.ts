@@ -4,37 +4,37 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://citiplumb",
+      url: "https://citiplumb.id",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1.0,
     },
     {
-      url: "https://citiplumb/about",
+      url: "https://citiplumb.id/about",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: "https://citiplumb/services",
+      url: "https://citiplumb.id/services",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: "https://citiplumb/portfolio",
+      url: "https://citiplumb.id/portfolio",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
-      url: "https://citiplumb/products",
+      url: "https://citiplumb.id/products",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
-      url: "https://citiplumb/contact",
+      url: "https://citiplumb.id/contact",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
