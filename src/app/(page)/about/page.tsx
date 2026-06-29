@@ -189,49 +189,60 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="relative mx-auto max-w-3xl">
-            {/* Vertical Timeline Line */}
-            <div className="absolute left-1/2 h-full w-0.5 -translate-x-1/2 bg-blue-300 dark:bg-blue-700" />
+          <div className="relative mx-auto max-w-4xl px-4">
+            {/* Timeline Line */}
+            <div className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-blue-300 dark:bg-blue-700" />
 
-            {journeyData.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative mb-12 flex items-center ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                }`}
-              >
-                {/* Year Circle */}
-                <div className="absolute left-1/2 z-10 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-blue-600 bg-white text-sm font-bold text-blue-600 dark:border-blue-400 dark:bg-gray-800 dark:text-blue-400">
-                  {item.year.slice(-2)}
-                </div>
+            {journeyData.map((item, index) => {
+              const isEven = index % 2 === 0;
 
-                {/* Content */}
-                <div
-                  className={`w-5/12 ${
-                    index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
-                  }`}
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="relative mb-12"
                 >
-                  <div
-                    className={`rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-gray-800 ${
-                      index % 2 === 0 ? "mr-4" : "ml-4"
-                    }`}
-                  >
-                    <h4 className="text-lg font-bold text-blue-900 dark:text-blue-300">
-                      {item.title}
-                    </h4>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">
-                      {item.description}
-                    </p>
+                  {/* Year Circle */}
+                  <div className="absolute left-4 md:left-1/2 z-10 flex h-10 w-10 md:h-12 md:w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-blue-600 bg-white text-xs md:text-sm font-bold text-blue-600 dark:border-blue-400 dark:bg-gray-800 dark:text-blue-400">
+                    {item.year.slice(-2)}
                   </div>
-                </div>
 
-                {/* Empty spacer for alignment */}
-                <div className="w-5/12" />
-              </motion.div>
-            ))}
+                  {/* Card - Left */}
+                  {isEven ? (
+                    <div className="flex justify-start">
+                      <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-8">
+                        <div className="rounded-xl bg-white p-4 md:p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-gray-800">
+                          <h4 className="text-left md:text-right text-base md:text-lg font-bold text-blue-900 dark:text-blue-300">
+                            {item.title}
+                          </h4>
+                          <p className="mt-1 md:mt-2 text-left md:text-right text-sm md:text-base text-gray-600 dark:text-gray-400">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="hidden md:block w-7/12" />
+                    </div>
+                  ) : (
+                    // Card - Right
+                    <div className="flex justify-end">
+                      <div className="hidden md:block w-7/12" />
+                      <div className="w-full md:w-5/12 pl-12 md:pl-8">
+                        <div className="rounded-xl bg-white p-4 md:p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-gray-800">
+                          <h4 className="text-left text-base md:text-lg font-bold text-blue-900 dark:text-blue-300">
+                            {item.title}
+                          </h4>
+                          <p className="mt-1 md:mt-2 text-left text-sm md:text-base text-gray-600 dark:text-gray-400">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -239,7 +250,7 @@ export default function AboutPage() {
       {/* Simple Stats */}
       <section className="border-t border-gray-200 py-8 dark:border-gray-800 dark:bg-gray-900">
         <div className="container mx-auto px-4">
-         <CertificateSection/>
+          <CertificateSection />
         </div>
       </section>
     </div>
