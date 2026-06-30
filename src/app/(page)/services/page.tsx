@@ -141,8 +141,11 @@ export default function ServicesPage() {
   const processSteps = [
     { step: 1, name: "Moulding", icon: "/img/icon/MOLDING.png" },
     { step: 2, name: "Injection", icon: "/img/icon/INJECTION.png" },
+  
     { step: 3, name: "Plating", icon: "/img/icon/PLATING.png" },
+
     { step: 4, name: "Spray", icon: "/img/icon/SPRAY.png" },
+  
     { step: 5, name: "Assembly", icon: "/img/icon/ASSEMBLY.png" },
     { step: 6, name: "QC", icon: "/img/icon/QC.png" },
   ];

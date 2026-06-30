@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "PT. CITI PLUMB - Premium Water Solutions",
     short_name: "CITI PLUMB",
     description:
-      "High-quality faucets and shower solutions manufactured with advanced automation and expert craftsmanship to meet international standards. Durable SS-304 stainless steel, modern designs, and water-saving technology for residential, hospitality, and commercial projects.",
+      "High-quality faucets and shower solutions manufactured with advanced technology, precision engineering, and expert craftsmanship to meet international quality standards.",
     start_url: "/",
     display: "standalone",
     display_override: ["standalone", "minimal-ui"],
@@ -59,8 +59,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
       },
     ],
-  
-   
+
     prefer_related_applications: false,
     related_applications: [],
   };

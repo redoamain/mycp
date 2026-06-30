@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | CITI PLUMB", // Kapitalisasi brand
   },
   description:
-    "High-quality faucets and shower solutions manufactured with advanced automation and expert craftsmanship to meet international standards. Durable SS-304 stainless steel, modern designs, and water-saving technology for residential, hospitality, and commercial projects.",
+    "High-quality faucets and shower solutions manufactured with advanced technology, precision engineering, and expert craftsmanship to meet international quality standards.",
   keywords: [
     "faucet manufacturer",
     "premium faucets",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     siteName: "CITI PLUMB - Premium Water Solutions",
     title: "CITI PLUMB - Premium Faucets & Shower Solutions Manufacturer",
     description:
-      "Leading faucet and shower manufacturer in Indonesia producing premium SS304 stainless steel water solutions with advanced automation and expert craftsmanship.",
+      "High-quality faucets and shower solutions manufactured with advanced technology, precision engineering, and expert craftsmanship to meet international quality standards.",
     images: [
       {
         url: "/img/products/BHF38101MBSD003.jpg",
