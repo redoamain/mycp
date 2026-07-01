@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://citiplumb.id"),
   title: {
     default: "CITI PLUMB - Premium Faucets & Shower Solutions",
-    template: "", // Kapitalisasi brand
+    template: "%s | PT. CITI PLUMB",
   },
   description:
     "High-quality faucets and shower solutions manufactured with advanced technology, precision engineering, and expert craftsmanship to meet international quality standards.",
