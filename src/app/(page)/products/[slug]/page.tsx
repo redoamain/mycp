@@ -1,6 +1,5 @@
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 import ProductDetailClient from "./productSlugClient";
-
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -13,7 +12,7 @@ export async function generateStaticParams() {
     const baseUrl =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://citiplumb.com";
+        : "https://citiplumb.id";
 
     const response = await fetch(`${baseUrl}/api/products`, {
       cache: "no-store",
@@ -42,7 +41,7 @@ async function fetchProduct(slug: string) {
     const baseUrl =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://citiplumb.com";
+        : "https://citiplumb.id";
 
     const response = await fetch(`${baseUrl}/api/products/${slug}`, {
       next: { revalidate: 3600 },
@@ -100,7 +99,7 @@ function generateProductMetadata(product: any, slug: string): Metadata {
       title: `${name} | CITI PLUMB`,
       description: description,
       type: "website",
-      url: `https://citiplumb.com/products/${slug}`,
+      url: `https://citiplumb.id/products/${slug}`,
       siteName: "CITI PLUMB",
       images: [
         {
@@ -129,15 +128,13 @@ function generateProductMetadata(product: any, slug: string): Metadata {
       },
     },
     alternates: {
-      canonical: `https://citiplumb.com/products/${slug}`,
+      canonical: `https://citiplumb.id/products/${slug}`,
     },
   };
 }
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: Promise<Metadata>,
-): Promise<Metadata> {
+// PERBAIKAN: Hapus parameter parent yang tidak digunakan
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = await fetchProduct(slug);
   return generateProductMetadata(product, slug);
@@ -171,5 +168,5 @@ export default async function ProductDetailPage({ params }: Props) {
   }
 
   // Render client component dengan data produk
-  return <ProductDetailClient />;
+  return <ProductDetailClient/>;
 }
